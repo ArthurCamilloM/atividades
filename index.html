@@ -83,7 +83,7 @@
     .hero h1 { font-size: clamp(1.9rem, 5.2vw, 3.2rem); max-width: 920px; margin: 0 auto 14px; }
     .hero h1 .destaque { color: var(--amarelo-texto); display: block; }
     .hero .apoio { font-weight: 700; font-size: 1.05rem; margin-bottom: 26px; }
-    .mockup { max-width: 560px; margin: 0 auto 28px; aspect-ratio: 1; }
+    .mockup { max-width: 680px; margin: 0 auto 28px; aspect-ratio: 1000 / 760; }
     .mockup img { width: 100%; height: 100%; object-fit: contain; filter: drop-shadow(0 20px 30px rgba(0,0,0,.25)); }
     .mockup .reservado { background: rgba(255,255,255,.1); border-color: rgba(255,255,255,.45); color: #fff; }
     .hero .texto { max-width: 700px; margin: 0 auto 22px; font-size: 1.04rem; opacity: .95; }
@@ -97,6 +97,9 @@
     .pagina { width: min(78vw, 340px); aspect-ratio: 3 / 4; border-radius: 16px; overflow: hidden; background: var(--branco); box-shadow: var(--sombra); }
     .pagina img { width: 100%; height: 100%; object-fit: cover; }
     .dica-arrastar { font-weight: 700; color: var(--azul-escuro); font-size: .92rem; }
+    /* carrossel que gira sozinho: sem "snap", senão ele trava a cada página */
+    .carrossel.automatico { scroll-snap-type: none; scrollbar-width: none; }
+    .carrossel.automatico::-webkit-scrollbar { display: none; }
     .preview { background: var(--branco); }
 
     /* ================= BENEFÍCIOS ================= */
@@ -262,7 +265,7 @@
       <span class="pilula azul">Veja por dentro</span>
       <h2>Conheça as páginas que seu filho vai jogar</h2>
       <p class="sub">Páginas reais da coleção: história da fase, atividades e o checkpoint de "missão concluída".</p>
-      <div class="carrossel">
+      <div class="carrossel automatico" id="carrosselPaginas">
         <div class="pagina"><img src="assets/pagina1.webp" alt="Página da coleção" loading="lazy" data-reservado="Página da coleção 1|assets/pagina1.webp"></div>
         <div class="pagina"><img src="assets/pagina2.webp" alt="Página da coleção" loading="lazy" data-reservado="Página da coleção 2|assets/pagina2.webp"></div>
         <div class="pagina"><img src="assets/pagina3.webp" alt="Página da coleção" loading="lazy" data-reservado="Página da coleção 3|assets/pagina3.webp"></div>
@@ -393,15 +396,15 @@
   <section class="extras centro">
     <div class="container">
       <h2>E não para por aí... tem mais!</h2>
-      <p class="sub">No Combo Completo você também recebe seis materiais extras para ampliar a prática e o engajamento.</p>
-      <span class="pilula amarela" style="margin-top:18px">🎁 6 materiais extras incluídos</span>
+      <p class="sub">No Combo Completo você também recebe seis bônus exclusivos para ampliar a prática e o engajamento.</p>
+      <span class="pilula amarela" style="margin-top:18px">🎁 6 bônus exclusivos incluídos</span>
       <div class="grade-extras">
-        <div class="card-e"><div class="capa"><img src="assets/extra1.webp" alt="100 Perguntas da Bíblia" loading="lazy" data-reservado="Capa extra 1|assets/extra1.webp"></div><div><small>EXTRA 01</small><h3>100 Perguntas da Bíblia</h3><p>O quiz da família em 3 níveis, do fácil ao chefão final, com 4 modos de jogo e gabarito.</p><span class="gratis">Grátis no combo</span></div></div>
-        <div class="card-e"><div class="capa"><img src="assets/extra2.webp" alt="Versículos Visuais" loading="lazy" data-reservado="Capa extra 2|assets/extra2.webp"></div><div><small>EXTRA 02</small><h3>Versículos Visuais</h3><p>24 cartões ilustrados para recortar, decorar e colecionar, cada um com uma missão.</p><span class="gratis">Grátis no combo</span></div></div>
-        <div class="card-e"><div class="capa"><img src="assets/extra3.webp" alt="Desafio 30 Dias do Jogador da Fé" loading="lazy" data-reservado="Capa extra 3|assets/extra3.webp"></div><div><small>EXTRA 03</small><h3>Desafio 30 Dias do Jogador da Fé</h3><p>Uma leitura e uma missão por dia para trocar o "só mais 5 minutos" por um mês de fé.</p><span class="gratis">Grátis no combo</span></div></div>
         <div class="card-e"><div class="capa"><img src="assets/bonus1.webp" alt="Mapa de Progresso da Fé" loading="lazy" data-reservado="Capa bônus 1|assets/bonus1.webp"></div><div><small>BÔNUS 01</small><h3>Mapa de Progresso da Fé</h3><p>Os 3 mundos e as 18 fases em um mapa para pendurar no quarto, com distintivos para colorir.</p><span class="gratis">Grátis no combo</span></div></div>
         <div class="card-e"><div class="capa"><img src="assets/bonus2.webp" alt="Cartões de Recompensa" loading="lazy" data-reservado="Capa bônus 2|assets/bonus2.webp"></div><div><small>BÔNUS 02</small><h3>Cartões de Recompensa</h3><p>A loja dos Pontos de Luz: 24 cartões de prêmio, do comum ao lendário, combinados em família.</p><span class="gratis">Grátis no combo</span></div></div>
         <div class="card-e"><div class="capa"><img src="assets/bonus3.webp" alt="Guia Rápido para os Pais" loading="lazy" data-reservado="Capa bônus 3|assets/bonus3.webp"></div><div><small>BÔNUS 03</small><h3>Guia Rápido para os Pais</h3><p>Rotina de 15 minutos por dia, frases prontas para birras de tela e dicas de segurança on-line.</p><span class="gratis">Grátis no combo</span></div></div>
+        <div class="card-e"><div class="capa"><img src="assets/bonus4.webp" alt="100 Perguntas da Bíblia" loading="lazy" data-reservado="Capa bônus 4|assets/bonus4.webp"></div><div><small>BÔNUS 04</small><h3>100 Perguntas da Bíblia</h3><p>O quiz da família em 3 níveis, do fácil ao chefão final, com 4 modos de jogo e gabarito.</p><span class="gratis">Grátis no combo</span></div></div>
+        <div class="card-e"><div class="capa"><img src="assets/bonus5.webp" alt="Versículos Visuais" loading="lazy" data-reservado="Capa bônus 5|assets/bonus5.webp"></div><div><small>BÔNUS 05</small><h3>Versículos Visuais</h3><p>24 cartões ilustrados para recortar, decorar e colecionar, cada um com uma missão.</p><span class="gratis">Grátis no combo</span></div></div>
+        <div class="card-e"><div class="capa"><img src="assets/bonus6.webp" alt="Desafio 30 Dias do Jogador da Fé" loading="lazy" data-reservado="Capa bônus 6|assets/bonus6.webp"></div><div><small>BÔNUS 06</small><h3>Desafio 30 Dias do Jogador da Fé</h3><p>Uma leitura e uma missão por dia para trocar o "só mais 5 minutos" por um mês de fé.</p><span class="gratis">Grátis no combo</span></div></div>
       </div>
     </div>
   </section>
@@ -425,9 +428,9 @@
             <li>PDF pronto para imprimir</li>
             <li>Acesso digital após a confirmação</li>
           </ul>
-          <div class="preco-de">de R$ 14,90</div>
+          <div class="preco-de">de R$ 27,90</div>
           <div class="preco-por">por apenas</div>
-          <div class="preco">R$ 9,90</div>
+          <div class="preco">R$ 19,90</div>
           <div class="preco-tipo">pagamento único</div>
           <!-- COLOQUE O LINK DE PAGAMENTO DO PLANO BÁSICO -->
           <a href="LINK_PLANO_BASICO" class="botao largo">Quero o plano básico</a>
@@ -445,17 +448,17 @@
             <li>18 fases para crianças de 6 a 12 anos</li>
             <li>Pontos de Luz, distintivos e certificado</li>
             <li>Gabarito e Guia da Coleção</li>
-            <li>100 Perguntas da Bíblia</li>
-            <li>Versículos Visuais</li>
-            <li>Desafio 30 Dias do Jogador da Fé</li>
             <li class="bonus">Mapa de Progresso da Fé</li>
             <li class="bonus">Cartões de Recompensa</li>
             <li class="bonus">Guia Rápido para os Pais</li>
+            <li class="bonus">100 Perguntas da Bíblia</li>
+            <li class="bonus">Versículos Visuais</li>
+            <li class="bonus">Desafio 30 Dias do Jogador da Fé</li>
             <li>Acesso digital e vitalício</li>
           </ul>
-          <div class="preco-de">de R$ 37,90</div>
+          <div class="preco-de">de R$ 49,90</div>
           <div class="preco-por">por apenas</div>
-          <div class="preco">R$ 29,90</div>
+          <div class="preco">R$ 37,90</div>
           <div class="preco-tipo">pagamento único</div>
           <!-- COLOQUE O LINK DE PAGAMENTO DO COMBO COMPLETO -->
           <a href="LINK_COMBO_COMPLETO" class="botao largo">Quero o combo completo</a>
@@ -489,7 +492,7 @@
         <details><summary>Quanto tempo por dia leva?</summary><p>Cerca de 15 minutos. O ritmo sugerido é uma fase por semana: um dia para a história, dois para as atividades e um para o checkpoint.</p></details>
         <details><summary>Serve para qualquer igreja?</summary><p>Sim. A coleção é interdenominacional: os Dez Mandamentos não são numerados e os versículos usam a tradução Almeida ou paráfrases marcadas como "adaptado".</p></details>
         <details><summary>Tem ligação oficial com algum jogo?</summary><p>Não. O visual de blocos é original e não há marcas, logos ou moedas de nenhum jogo. A coleção apenas usa a linguagem dos jogos que as crianças já amam.</p></details>
-        <details><summary>O que vem no Combo Completo?</summary><p>Os 3 cadernos da coleção mais 6 materiais: 100 Perguntas da Bíblia, Versículos Visuais, Desafio 30 Dias do Jogador da Fé, Mapa de Progresso da Fé, Cartões de Recompensa e Guia Rápido para os Pais, com acesso vitalício.</p></details>
+        <details><summary>O que vem no Combo Completo?</summary><p>Os 3 cadernos da coleção mais 6 bônus: Mapa de Progresso da Fé, Cartões de Recompensa, Guia Rápido para os Pais, 100 Perguntas da Bíblia, Versículos Visuais e Desafio 30 Dias do Jogador da Fé, com acesso vitalício.</p></details>
         <details><summary>Como recebo os arquivos?</summary><p>Logo após a confirmação do pagamento, você recebe no seu e-mail o link para baixar todos os PDFs.</p></details>
       </div>
       <a href="#planos" class="botao">Quero escolher meu plano</a>
@@ -508,6 +511,38 @@
       document.getElementById("dataHoje").textContent =
         String(d.getDate()).padStart(2, "0") + "/" + String(d.getMonth() + 1).padStart(2, "0") + "/" + d.getFullYear();
       document.getElementById("ano").textContent = d.getFullYear();
+    })();
+
+    // Carrossel "Veja por dentro": gira devagar sozinho e para quando a pessoa passa o mouse ou toca
+    (function () {
+      var c = document.getElementById("carrosselPaginas");
+      if (!c || window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+      c.innerHTML += c.innerHTML; // duplica as páginas para o giro não ter fim
+      var VELOCIDADE = 35;        // pixels por segundo
+      var pos = 0, parado = false, retomar = null, antes = null;
+      function parar() { parado = true; clearTimeout(retomar); }
+      function voltar(espera) {
+        clearTimeout(retomar);
+        retomar = setTimeout(function () { pos = c.scrollLeft; parado = false; }, espera);
+      }
+      c.addEventListener("mouseenter", parar);
+      c.addEventListener("mouseleave", function () { voltar(300); });
+      c.addEventListener("touchstart", parar, { passive: true });
+      c.addEventListener("touchend", function () { voltar(2500); });
+      function girar(agora) {
+        var dt = antes === null ? 0 : Math.min(agora - antes, 100) / 1000; // limita o salto ao voltar para a aba
+        antes = agora;
+        if (!parado) {
+          pos += VELOCIDADE * dt;
+          var metade = c.scrollWidth / 2;
+          if (pos >= metade) pos -= metade;
+          c.scrollLeft = pos;
+        } else if (c.scrollLeft >= c.scrollWidth / 2) {
+          c.scrollLeft -= c.scrollWidth / 2; // mexendo à mão também não acaba
+        }
+        requestAnimationFrame(girar);
+      }
+      requestAnimationFrame(girar);
     })();
 
     // Imagem que ainda não existe vira um espaço reservado com o nome do arquivo esperado
