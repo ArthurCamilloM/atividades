@@ -432,8 +432,8 @@
           <div class="preco-por">por apenas</div>
           <div class="preco">R$ 19,90</div>
           <div class="preco-tipo">pagamento único</div>
-          <!-- COLOQUE O LINK DE PAGAMENTO DO PLANO BÁSICO -->
-          <a href="LINK_PLANO_BASICO" class="botao largo">Quero o plano básico</a>
+          <!-- Checkout Wiapy do Plano Básico (R$ 19,90) -->
+          <a href="https://pay.wiapy.com/wQqwLQW5Hn0" class="botao largo">Quero o plano básico</a>
         </div>
 
         <div class="plano completo">
@@ -460,8 +460,8 @@
           <div class="preco-por">por apenas</div>
           <div class="preco">R$ 27,90</div>
           <div class="preco-tipo">pagamento único</div>
-          <!-- COLOQUE O LINK DE PAGAMENTO DO COMBO COMPLETO -->
-          <a href="LINK_COMBO_COMPLETO" class="botao largo">Quero o combo completo</a>
+          <!-- Checkout Wiapy do Combo Completo (R$ 27,90) -->
+          <a href="https://pay.wiapy.com/F_hVchrjozRG" class="botao largo">Quero o combo completo</a>
         </div>
       </div>
       <p class="seguranca">🔒 Pagamento seguro por Pix ou cartão • acesso enviado após a confirmação</p>
@@ -511,6 +511,17 @@
       document.getElementById("dataHoje").textContent =
         String(d.getDate()).padStart(2, "0") + "/" + String(d.getMonth() + 1).padStart(2, "0") + "/" + d.getFullYear();
       document.getElementById("ano").textContent = d.getFullYear();
+    })();
+
+    // Repassa os parâmetros do anúncio (utm_*, fbclid...) para os links do checkout
+    (function () {
+      var params = new URLSearchParams(window.location.search);
+      if (!params.toString()) return;
+      document.querySelectorAll('a[href^="https://pay.wiapy.com/"]').forEach(function (a) {
+        var url = new URL(a.href);
+        params.forEach(function (valor, chave) { if (!url.searchParams.has(chave)) url.searchParams.set(chave, valor); });
+        a.href = url.toString();
+      });
     })();
 
     // Carrossel "Veja por dentro": gira devagar sozinho e para quando a pessoa passa o mouse ou toca
