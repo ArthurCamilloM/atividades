@@ -309,19 +309,19 @@
   </section>
 
   <!-- PROVA SOCIAL -->
-  <section class="prova centro">
+  <section class="prova centro" id="depoimentos">
     <div class="container">
       <span class="pilula azul">Material na prática</span>
       <h2>Famílias já estão usando a coleção para trazer a fé para a rotina</h2>
       <p class="sub">Veja relatos enviados por quem recebeu o material e começou a aplicar com as crianças.</p>
       <div class="carrossel">
         <!-- Coloque prints REAIS de depoimentos com estes nomes de arquivo -->
-        <div class="print"><img src="assets/depoimento1.webp" alt="Depoimento" loading="lazy" data-reservado="Print de depoimento 1|assets/depoimento1.webp"></div>
-        <div class="print"><img src="assets/depoimento2.webp" alt="Depoimento" loading="lazy" data-reservado="Print de depoimento 2|assets/depoimento2.webp"></div>
-        <div class="print"><img src="assets/depoimento3.webp" alt="Depoimento" loading="lazy" data-reservado="Print de depoimento 3|assets/depoimento3.webp"></div>
-        <div class="print"><img src="assets/depoimento4.webp" alt="Depoimento" loading="lazy" data-reservado="Print de depoimento 4|assets/depoimento4.webp"></div>
-        <div class="print"><img src="assets/depoimento5.webp" alt="Depoimento" loading="lazy" data-reservado="Print de depoimento 5|assets/depoimento5.webp"></div>
-        <div class="print"><img src="assets/depoimento6.webp" alt="Depoimento" loading="lazy" data-reservado="Print de depoimento 6|assets/depoimento6.webp"></div>
+        <div class="print"><img src="assets/depoimento1.webp" alt="Depoimento de cliente" data-depoimento></div>
+        <div class="print"><img src="assets/depoimento2.webp" alt="Depoimento de cliente" data-depoimento></div>
+        <div class="print"><img src="assets/depoimento3.webp" alt="Depoimento de cliente" data-depoimento></div>
+        <div class="print"><img src="assets/depoimento4.webp" alt="Depoimento de cliente" data-depoimento></div>
+        <div class="print"><img src="assets/depoimento5.webp" alt="Depoimento de cliente" data-depoimento></div>
+        <div class="print"><img src="assets/depoimento6.webp" alt="Depoimento de cliente" data-depoimento></div>
       </div>
     </div>
   </section>
@@ -513,6 +513,24 @@
       document.getElementById("dataHoje").textContent =
         String(d.getDate()).padStart(2, "0") + "/" + String(d.getMonth() + 1).padStart(2, "0") + "/" + d.getFullYear();
       document.getElementById("ano").textContent = d.getFullYear();
+    })();
+
+    // Depoimentos: cada print só aparece se o arquivo existir (assets/depoimento1.webp ... 6).
+    // Sem nenhum print, a seção inteira fica escondida.
+    (function () {
+      var secao = document.getElementById("depoimentos");
+      var imgs = [].slice.call(document.querySelectorAll("img[data-depoimento]"));
+      if (!secao || !imgs.length) return;
+      secao.hidden = true;
+      var pendentes = imgs.length, algum = false;
+      imgs.forEach(function (img) {
+        function fim(ok) {
+          if (ok) algum = true; else img.parentElement.remove();
+          if (--pendentes === 0) secao.hidden = !algum;
+        }
+        if (img.complete) fim(img.naturalWidth > 0);
+        else { img.addEventListener("load", function () { fim(true); }); img.addEventListener("error", function () { fim(false); }); }
+      });
     })();
 
     // Repassa os parâmetros do anúncio (utm_*, fbclid...) para os links do checkout
