@@ -83,9 +83,34 @@
     .hero h1 { font-size: clamp(1.9rem, 5.2vw, 3.2rem); max-width: 920px; margin: 0 auto 14px; }
     .hero h1 .destaque { color: var(--amarelo-texto); display: block; }
     .hero .apoio { font-weight: 700; font-size: 1.05rem; margin-bottom: 26px; }
-    .mockup { max-width: 680px; margin: 0 auto 28px; aspect-ratio: 1000 / 760; }
-    .mockup img { width: 100%; height: 100%; object-fit: contain; filter: drop-shadow(0 20px 30px rgba(0,0,0,.25)); }
+    .hero { overflow-x: clip; } /* as folhas giradas passam um pouco da borda no celular */
+    .mockup { position: relative; max-width: 680px; margin: 0 auto 28px; aspect-ratio: 1000 / 760; }
     .mockup .reservado { background: rgba(255,255,255,.1); border-color: rgba(255,255,255,.45); color: #fff; }
+
+    /* ================= MOCKUP ANIMADO (capa no meio + 4 páginas em leque) =================
+       .folha  = posição, giro base e a entrada (as páginas "abrem" de trás da capa)
+       img     = o movimento contínuo, diferente em cada folha */
+    .folha { position: absolute; width: 28%; rotate: var(--giro, 0deg); animation: abrir .9s cubic-bezier(.2,.9,.3,1.15) var(--atraso, 0s) backwards; }
+    .folha img {
+      width: 100%; aspect-ratio: 620 / 878; object-fit: cover; background: #fff;
+      border: clamp(3px, .9vw, 6px) solid #fff; border-radius: 6px; box-shadow: 0 14px 26px rgba(0,0,0,.28);
+      animation: var(--movimento) var(--duracao, 5s) ease-in-out var(--fase, 0s) infinite alternate;
+    }
+    .folha.f1 { left: 3%;  top: 34%; --giro: -16deg; --dx: 70%;  --atraso: .45s; --movimento: balancar-esq; --duracao: 3.4s; }
+    .folha.f2 { left: 14%; top: 23%; --giro: -8deg;  --dx: 45%;  --atraso: .3s;  --movimento: subir;        --duracao: 2.8s; --fase: -1.2s; }
+    .folha.f3 { left: 58%; top: 22%; --giro: 7deg;   --dx: -45%; --atraso: .3s;  --movimento: inclinar;     --duracao: 3.1s; --fase: -.6s; }
+    .folha.f4 { left: 69%; top: 34%; --giro: 15deg;  --dx: -70%; --atraso: .45s; --movimento: balancar-dir; --duracao: 3.7s; --fase: -2s; }
+    .folha.f1 img { transform-origin: 100% 100%; }
+    .folha.f4 img { transform-origin: 0 100%; }
+    .folha.capa { left: 28%; top: 2%; width: 44%; z-index: 1; animation-name: surgir; --movimento: flutuar; --duracao: 2.6s; }
+    .folha.capa img { aspect-ratio: 560 / 794; box-shadow: 0 22px 40px rgba(0,0,0,.32); }
+    @keyframes abrir   { from { opacity: 0; translate: var(--dx) 6%; rotate: 0deg; } }
+    @keyframes surgir  { from { scale: .92; } }
+    @keyframes flutuar { from { translate: 0 0; rotate: -.6deg; } to { translate: 0 -3%; rotate: .6deg; } }
+    @keyframes balancar-esq { from { rotate: 0deg; translate: 0 0; } to { rotate: -5deg; translate: -3% -2%; } }
+    @keyframes balancar-dir { from { rotate: 0deg; translate: 0 0; } to { rotate: 5deg;  translate: 3% -2%; } }
+    @keyframes subir    { from { translate: 0 0; rotate: 0deg; } to { translate: -2% -5%; rotate: -2deg; } }
+    @keyframes inclinar { from { translate: 0 0; rotate: 0deg; } to { translate: 2% -4%; rotate: 3deg; } }
     .hero .texto { max-width: 700px; margin: 0 auto 22px; font-size: 1.04rem; opacity: .95; }
     .lista-check { list-style: none; max-width: 540px; margin: 0 auto 32px; text-align: left; display: grid; gap: 10px; }
     .lista-check li { display: flex; gap: 10px; align-items: flex-start; font-weight: 600; }
@@ -261,7 +286,13 @@
       <h1>Seu filho só quer saber de jogo? Ele vai aprender a Bíblia jogando <span class="destaque">fase por fase, checkpoint por checkpoint</span></h1>
       <p class="apoio">Atividades bíblicas para crianças gamers de 6 a 12 anos</p>
 
-      <div class="mockup"><img src="assets/mockup.webp" alt="Coleção Fé no Mundo dos Blocos" data-reservado="Imagem da coleção (mockup)|assets/mockup.webp"></div>
+      <div class="mockup">
+        <div class="folha f1"><img src="assets/pagina5.webp" alt="" data-reservado="Página da coleção 5|assets/pagina5.webp"></div>
+        <div class="folha f4"><img src="assets/pagina6.webp" alt="" data-reservado="Página da coleção 6|assets/pagina6.webp"></div>
+        <div class="folha f2"><img src="assets/pagina3.webp" alt="" data-reservado="Página da coleção 3|assets/pagina3.webp"></div>
+        <div class="folha f3"><img src="assets/pagina4.webp" alt="" data-reservado="Página da coleção 4|assets/pagina4.webp"></div>
+        <div class="folha capa"><img src="assets/nivel1.webp" alt="Coleção Fé no Mundo dos Blocos" data-reservado="Capa do Nível 1|assets/nivel1.webp"></div>
+      </div>
 
       <p class="texto">A coleção <b>Fé no Mundo dos Blocos</b> transforma as histórias da Bíblia em um "obby de papel": cada história é uma fase, com desafios, itens desbloqueados e checkpoint. Os <b>Pontos de Luz</b> que a criança ganha viram uma recompensa combinada em família — como tempo de jogo no fim de semana.</p>
       <ul class="lista-check">
