@@ -79,6 +79,19 @@
     /* ================= TOPO ================= */
     .barra-oferta { background: var(--vermelho); color: var(--branco); text-align: center; font-size: .76rem; font-weight: 900; letter-spacing: .03em; padding: 9px 12px; text-transform: uppercase; }
     .barra-oferta .timer { display: inline-block; background: rgba(0,0,0,.25); border-radius: 6px; padding: 2px 8px; margin-right: 6px; font-variant-numeric: tabular-nums; }
+
+    /* ================= POP-UP DO FIM DO TIMER ================= */
+    .popup-fundo { position: fixed; inset: 0; z-index: 1000; background: rgba(7,27,46,.72); display: grid; place-items: center; padding: 16px; animation: aparecer .25s ease; }
+    .popup { position: relative; width: 100%; max-width: 400px; background: var(--branco); border-radius: 22px; padding: 30px 22px 22px; text-align: center; box-shadow: 0 24px 60px rgba(0,0,0,.35); animation: subir-popup .35s cubic-bezier(.2,.9,.3,1.2); }
+    .popup .icone-popup { font-size: 2.6rem; line-height: 1; margin-bottom: 10px; }
+    .popup h2 { font-size: 1.45rem; color: var(--vermelho); margin-bottom: 10px; }
+    .popup p { color: var(--texto-suave); margin-bottom: 20px; }
+    .popup p b { color: var(--texto); }
+    .popup .botao { width: 100%; }
+    .popup .fechar-x { position: absolute; top: 10px; right: 12px; width: 36px; height: 36px; border: 0; border-radius: 50%; background: var(--fundo-claro); color: var(--texto-suave); font-size: 1.3rem; cursor: pointer; }
+    .popup .agora-nao { margin-top: 16px; border: 0; background: none; color: var(--texto-suave); font: inherit; font-size: .85rem; text-decoration: underline; cursor: pointer; }
+    @keyframes aparecer { from { opacity: 0; } }
+    @keyframes subir-popup { from { opacity: 0; translate: 0 30px; scale: .95; } }
     .hero { background: var(--azul); color: var(--branco); padding: 34px 0 70px; text-align: center; }
     .selo-seguro { display: inline-block; background: var(--branco); color: var(--texto); font-size: .74rem; font-weight: 700; padding: 6px 14px; border-radius: 999px; margin-bottom: 22px; }
     .hero h1 { font-size: clamp(1.9rem, 5.2vw, 3.2rem); max-width: 920px; margin: 0 auto 14px; }
@@ -289,7 +302,19 @@
   <!-- <div style="position:fixed;top:0;left:0;right:0;z-index:9999;background:#000;color:#ff0;text-align:center;font:700 12px sans-serif;padding:4px">AMBIENTE DE TESTE LOCAL · DADOS FICTÍCIOS · NÃO PUBLICAR</div> -->
 
   <!-- BARRA DE OFERTA -->
-  <div class="barra-oferta"><span class="timer" id="timer">15:00</span>⚡ Preço de lançamento: coleção completa a partir de R$ 19,90</div>
+  <div class="barra-oferta"><span class="timer" id="timer">15:00</span><span id="textoBarra">⚡ Preço de lançamento: coleção completa a partir de R$ 19,90</span></div>
+
+  <!-- POP-UP que abre quando o timer chega em 00:00 (uma vez por visitante) -->
+  <div class="popup-fundo" id="popupFim" hidden>
+    <div class="popup" role="dialog" aria-modal="true" aria-labelledby="popupTitulo">
+      <button class="fechar-x" type="button" aria-label="Fechar" data-fechar>×</button>
+      <div class="icone-popup">⏰</div>
+      <h2 id="popupTitulo">Últimas unidades com preço de lançamento</h2>
+      <p>Compre agora, antes que as últimas unidades se esgotem. A coleção <b>Obby da Fé</b> sai a partir de <b>R$ 19,90</b>, em pagamento único.</p>
+      <a href="#planos" class="botao" data-fechar>Quero garantir a minha</a>
+      <button class="agora-nao" type="button" data-fechar>Agora não</button>
+    </div>
+  </div>
 
   <!-- HERO -->
   <header class="hero">
@@ -547,20 +572,39 @@
     document.getElementById("ano").textContent = new Date().getFullYear();
 
     // Timer de 15 minutos na barra do topo. O fim fica salvo no navegador da pessoa,
-    // então recarregar a página não reinicia a contagem; ao chegar em 00:00 ele para.
+    // então recarregar a página não reinicia a contagem. Em 00:00 a barra muda de texto
+    // e abre o pop-up de "últimas unidades" (só uma vez por visitante).
     (function () {
       var el = document.getElementById("timer");
-      var DURACAO = 15 * 60 * 1000, CHAVE = "obbyTimerFim", fim = null;
+      var popup = document.getElementById("popupFim");
+      var DURACAO = 15 * 60 * 1000, CHAVE = "obbyTimerFim", CHAVE_POPUP = "obbyPopupVisto", fim = null;
       try { fim = Number(localStorage.getItem(CHAVE)) || null; } catch (e) {}
       if (!fim) {
         fim = Date.now() + DURACAO;
         try { localStorage.setItem(CHAVE, fim); } catch (e) {}
       }
+
+      function fecharPopup() { popup.hidden = true; }
+      popup.querySelectorAll("[data-fechar]").forEach(function (b) { b.addEventListener("click", fecharPopup); });
+      popup.addEventListener("click", function (e) { if (e.target === popup) fecharPopup(); });
+      document.addEventListener("keydown", function (e) { if (e.key === "Escape") fecharPopup(); });
+
+      function acabou() {
+        el.hidden = true;
+        document.getElementById("textoBarra").textContent = "🔥 Últimas unidades com preço de lançamento: a partir de R$ 19,90";
+        var visto = false;
+        try { visto = localStorage.getItem(CHAVE_POPUP) === "1"; } catch (e) {}
+        if (visto) return;
+        popup.hidden = false;
+        try { localStorage.setItem(CHAVE_POPUP, "1"); } catch (e) {}
+      }
+
       function tick() {
         var resta = Math.max(0, fim - Date.now());
         var s = Math.ceil(resta / 1000);
         el.textContent = String(Math.floor(s / 60)).padStart(2, "0") + ":" + String(s % 60).padStart(2, "0");
         if (resta > 0) setTimeout(tick, 250);
+        else acabou();
       }
       tick();
     })();
