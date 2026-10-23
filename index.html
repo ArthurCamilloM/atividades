@@ -261,6 +261,22 @@
     .tranquilo { list-style: none; display: flex; flex-wrap: wrap; justify-content: center; gap: 10px; margin-top: 18px; }
     .tranquilo li { background: var(--azul-claro); color: var(--azul); font-size: .85rem; font-weight: 600; padding: 8px 14px; border-radius: 999px; }
 
+    /* ================= CHAMADA FINAL (faixa dourada) ================= */
+    .cta-final { background: linear-gradient(120deg, #E9B44C 0%, #E39A1E 60%, #DB8A12 100%); color: var(--marinho); padding: 76px 0; }
+    .cta-final .icone-cta { width: 40px; height: 40px; stroke-width: 1.8; margin-bottom: 10px; }
+    .cta-final h2 { color: var(--marinho); font-size: clamp(1.9rem, 5vw, 3rem); max-width: 720px; margin: 0 auto 12px; }
+    section.cta-final > .container > h2::after { display: none; }
+    .cta-final .sub { color: #3a2a0c; max-width: 620px; margin-bottom: 28px; }
+    .botao-claro {
+      display: inline-flex; align-items: center; gap: 10px; background: #FBF8F2; color: var(--marinho); text-decoration: none;
+      text-transform: uppercase; font-weight: 800; font-size: 1rem; letter-spacing: .04em; padding: 18px 32px; border-radius: 999px;
+      box-shadow: 0 10px 26px rgba(90,55,0,.25); transition: transform .15s ease, box-shadow .15s ease;
+    }
+    .botao-claro:hover { transform: translateY(-2px); box-shadow: 0 14px 30px rgba(90,55,0,.32); }
+    .botao-claro .ic { transition: transform .15s ease; }
+    .botao-claro:hover .ic { transform: translateX(4px); }
+    .cta-final .garantias { margin-top: 18px; font-size: .85rem; color: #3a2a0c; }
+
     /* ================= GARANTIA ================= */
     .garantia { background: var(--fundo-claro); }
     .garantia-caixa { display: grid; grid-template-columns: auto 1fr; gap: 30px; align-items: center; }
@@ -359,6 +375,8 @@
     <symbol id="i-impressora" viewBox="0 0 24 24"><path d="M6 9V2h12v7M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"/><rect x="6" y="14" width="12" height="8"/></symbol>
     <symbol id="i-igreja" viewBox="0 0 24 24"><path d="M12 2v5M10 4h4M5 22V12l7-5 7 5v10M2 22h20M10 22v-4a2 2 0 0 1 4 0v4"/></symbol>
     <symbol id="i-check" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="m9 12 2 2 4-4"/></symbol>
+    <symbol id="i-medalha" viewBox="0 0 24 24"><circle cx="12" cy="8" r="6"/><path d="M15.5 12.9 17 22l-5-3-5 3 1.5-9.1"/></symbol>
+    <symbol id="i-seta" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></symbol>
   </svg>
 
   <div class="barra-oferta"><span class="timer" id="timer">15:00</span><span id="textoBarra"><svg class="ic"><use href="#i-raio"/></svg>Preço de lançamento: +120 atividades bíblicas a partir de R$ 19,90</span></div>
@@ -631,7 +649,17 @@
         <details><summary>O que vem no Combo Completo?</summary><p>Os 3 cadernos da coleção mais 6 bônus: Mapa de Progresso da Fé, Cartões de Recompensa, Guia Rápido para os Pais, 100 Perguntas da Bíblia, Versículos Visuais e Desafio 30 Dias do Jogador da Fé, com acesso vitalício.</p></details>
         <details><summary>Como recebo os arquivos?</summary><p>Logo após a confirmação do pagamento, você recebe no seu e-mail o link para baixar todos os PDFs.</p></details>
       </div>
-      <a href="#planos" class="botao">Quero escolher meu plano</a>
+    </div>
+  </section>
+
+  <!-- CHAMADA FINAL (faixa dourada antes do rodapé) -->
+  <section class="cta-final centro">
+    <div class="container">
+      <svg class="ic icone-cta" aria-hidden="true"><use href="#i-medalha"/></svg>
+      <h2>Dê ao seu filho o próximo passo na fé</h2>
+      <p class="sub">Transforme o tempo de jogo em tempo com Deus: mais de 120 atividades bíblicas prontas para imprimir, a partir de R$ 19,90.</p>
+      <a href="#planos" class="botao-claro">Quero a coleção agora <svg class="ic" aria-hidden="true"><use href="#i-seta"/></svg></a>
+      <p class="garantias">Acesso imediato • Pagamento seguro • Garantia de 7 dias</p>
     </div>
   </section>
 
@@ -648,7 +676,7 @@
     // Números com data-contar sobem de 0 até o valor quando ficam visíveis.
     (function () {
       if (!("IntersectionObserver" in window) || window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
-      var alvos = "section h2, section .sub, section .pilula, .carrossel, .card-b, .passo, .nivel, .card-e, .plano, .tranquilo, .garantia-caixa, details, .urgencia .botao, .faq .botao, .numero";
+      var alvos = "section h2, section .sub, section .pilula, .carrossel, .card-b, .passo, .nivel, .card-e, .plano, .tranquilo, .garantia-caixa, details, .urgencia .botao, .numero, .cta-final .icone-cta, .botao-claro, .cta-final .garantias";
       var obs = new IntersectionObserver(function (entradas) {
         entradas.forEach(function (e) {
           if (!e.isIntersecting) return;
