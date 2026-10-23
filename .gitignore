@@ -1,3 +1,8 @@
 .vercel
 .env*
 Atividades
+
+# Impeccable (contexto de design local, não publicar)
+.impeccable/
+PRODUCT.md
+DESIGN.md
