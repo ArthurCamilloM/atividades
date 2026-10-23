@@ -4,9 +4,9 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Obby da Fé · Atividades Bíblicas para Crianças Gamers</title>
-  <meta name="description" content="Mais de 120 atividades bíblicas para crianças de 6 a 12 anos que amam jogos de blocos. 3 cadernos, 21 fases, Pontos de Luz e certificado. PDF para imprimir, a partir de R$ 19,90.">
+  <meta name="description" content="3 cadernos por R$ 19,90 ou a Coleção Completa com +500 páginas por R$ 27,90.">
   <meta property="og:title" content="Obby da Fé · Atividades Bíblicas para Crianças Gamers">
-  <meta property="og:description" content="Seu filho gamer vai pedir para fazer atividade bíblica. 3 cadernos em PDF para imprimir, a partir de R$ 19,90.">
+  <meta property="og:description" content="3 cadernos por R$ 19,90 ou a Coleção Completa com +500 páginas por R$ 27,90.">
   <meta property="og:type" content="website">
   <meta name="theme-color" content="#5B3FC4">
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -162,6 +162,9 @@
     .varal { position: relative; margin-top: 30px; }
     .trilho { display: flex; gap: 18px; overflow-x: auto; scroll-snap-type: x mandatory; padding: 18px 16px 26px; scrollbar-width: thin; scrollbar-color: var(--roxo) var(--lilas); }
     .trilho > * { flex: 0 0 auto; scroll-snap-align: center; }
+    /* com um item só, ele fica no centro e as setas somem */
+    .trilho:has(> :only-child) { justify-content: center; }
+    .varal:has(.trilho > :only-child) .setas-varal { display: none; }
     .pagina { position: relative; width: min(74vw, 320px); background: var(--papel); padding: 6px; border-radius: 6px; box-shadow: var(--sombra-papel); }
     .pagina:nth-child(odd) { rotate: -1.2deg; } .pagina:nth-child(even) { rotate: 1.2deg; }
     .pagina .selo-bonus { position: absolute; right: -8px; bottom: 18px; background: var(--sol); color: var(--roxo-noite); font-weight: 900; font-size: .78rem; padding: 5px 10px; border-radius: 6px; rotate: 4deg; box-shadow: 0 4px 10px rgba(37,29,69,.25); }
@@ -343,6 +346,7 @@
       .nivel .idade { justify-self: start; }
       .porta-bonus { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 30px 14px; padding: 38px 14px 24px; }
       .bonus .valor s { display: block; margin: 0; }
+      .porta-bonus > .bonus:nth-of-type(9) { grid-column: 1 / -1; justify-self: center; width: calc(50% - 7px); }
     }
     @media (max-width: 720px) {
       section { padding: 50px 0; }
@@ -585,6 +589,9 @@
         <div class="bonus"><span class="ima c4"></span><img src="assets/bonus4.webp" alt="Capa do bônus 100 Perguntas da Bíblia" loading="lazy" data-reservado="Capa bônus 4|assets/bonus4.webp"><div class="rotulo"><h3>100 Perguntas da Bíblia</h3><p>Quiz em 3 níveis e 4 modos: Família, Solo, Speedrun e Torneio. Para o jantar, o carro e a igreja.</p><span class="valor"><s>R$ 14,90</s><span class="nw">sai de graça</span></span></div></div>
         <div class="bonus"><span class="ima"></span><img src="assets/bonus5.webp" alt="Capa do bônus Versículos Visuais" loading="lazy" data-reservado="Capa bônus 5|assets/bonus5.webp"><div class="rotulo"><h3>Versículos Visuais: 24 cartões</h3><p>Cada cartão com uma missão. A regra mais simples da casa: falou o versículo, liberou o jogo.</p><span class="valor"><s>R$ 9,90</s><span class="nw">sai de graça</span></span></div></div>
         <div class="bonus"><span class="ima c2"></span><img src="assets/bonus6.webp" alt="Capa do bônus Desafio 30 Dias do Jogador da Fé" loading="lazy" data-reservado="Capa bônus 6|assets/bonus6.webp"><div class="rotulo"><h3>Desafio 30 Dias do Jogador da Fé</h3><p>Uma leitura e uma missão por dia. Sem game over: perdeu um dia, continua de onde parou. Certificado no dia 30.</p><span class="valor"><s>R$ 12,90</s><span class="nw">sai de graça</span></span></div></div>
+        <div class="bonus"><span class="ima c3"></span><img src="assets/bonus7.webp" alt="Capa do bônus Livro de Colorir da Bíblia" loading="lazy" data-reservado="Capa bônus 7|assets/bonus7.webp"><div class="rotulo"><h3>Livro de Colorir da Bíblia</h3><p>104 desenhos de 30 heróis e histórias da Bíblia, com um versículo em cada página.</p><span class="valor"><s>R$ 19,90</s><span class="nw">sai de graça</span></span></div></div>
+        <div class="bonus"><span class="ima c4"></span><img src="assets/bonus8.webp" alt="Capa do bônus Passatempos Bíblicos" loading="lazy" data-reservado="Capa bônus 8|assets/bonus8.webp"><div class="rotulo"><h3>Passatempos Bíblicos</h3><p>100 desafios em 25 histórias: caça-palavras, código secreto, labirinto e quiz, com gabarito.</p><span class="valor"><s>R$ 14,90</s><span class="nw">sai de graça</span></span></div></div>
+        <div class="bonus"><span class="ima"></span><img src="assets/bonus9.webp" alt="Capa do bônus Devocional do Jogador" loading="lazy" data-reservado="Capa bônus 9|assets/bonus9.webp"><div class="rotulo"><h3>Devocional do Jogador</h3><p>100 dias com Deus em 10 mundos: versículo, oração e uma missão por dia.</p><span class="valor"><s>R$ 21,90</s><span class="nw">sai de graça</span></span></div></div>
       </div>
     </div>
   </section>
@@ -600,7 +607,7 @@
           <h3>Plano Básico</h3>
           <p class="resumo">Os 3 cadernos para imprimir</p>
           <ul class="itens">
-            <li><b>3 cadernos por idade</b></li>
+            <li><b>3 cadernos por idade (147 páginas)</b></li>
             <li>21 fases</li>
             <li>Pontos de Luz, distintivos e certificado</li>
             <li>Gabarito e Guia da Coleção</li>
