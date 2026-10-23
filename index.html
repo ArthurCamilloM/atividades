@@ -199,7 +199,9 @@
     .autoridade-texto .sub { margin: 0; }
     .autoridade .grade-numeros { grid-template-columns: repeat(3, 1fr); margin-top: 26px; }
     .autoridade .numero b { font-size: clamp(1.6rem, 5vw, 2.2rem); }
+    .autoridade .numero > span { display: block; line-height: 1.3; margin-top: 2px; }
     .bilhete { position: relative; margin-top: 30px; background: var(--sol-claro); color: #4a3700; padding: 22px 20px 16px; border-radius: 6px; rotate: 1deg; box-shadow: var(--sombra-papel); font-family: "Fraunces", Georgia, serif; font-style: italic; font-size: 1.08rem; line-height: 1.5; }
+    .bilhete.bio { font-family: "Nunito", sans-serif; font-style: normal; font-weight: 700; font-size: 1rem; line-height: 1.6; }
     .bilhete cite { display: block; margin-top: 8px; font-family: "Nunito", sans-serif; font-style: normal; font-size: .82rem; font-weight: 900; letter-spacing: .08em; color: #6b5200; }
 
     /* selo pequeno no topo: quem assina junto */
@@ -405,8 +407,7 @@
       <div class="hero-texto">
         <h1>Seu filho gamer vai pedir para fazer atividade bíblica <span class="destaque"><span>+120 desafios no estilo do jogo que ele ama</span></span></h1>
         <p class="apoio">3 cadernos em PDF para imprimir · 6 a 12 anos · só 15 minutos por dia</p>
-        <!-- PREENCHER: trocar "Com" por "Criado com" ou "Recomendado por", conforme o papel do Deive -->
-        <a class="com-deive" href="#deive"><span class="avatar" style="background-image:url(assets/deive.webp)" aria-hidden="true"></span><span>Com <b>Deive Leonardo</b></span></a>
+        <a class="com-deive" href="#deive"><span class="avatar" style="background-image:url(assets/deive-avatar.webp)" aria-hidden="true"></span><span>Com <b>Deive Leonardo</b></span></a>
         <ul class="lista-check lista-desktop">
           <li>Histórias da Bíblia, versículo e oração em cada fase, sem briga e sem sermão</li>
           <li>O tempo de tela vira tempo com Deus: os pontos que ele ganha viram tempo de jogo no fim de semana</li>
@@ -522,27 +523,26 @@
     </div>
   </section>
 
-  <!-- DEIVE LEONARDO: quem está com a gente
-       PREENCHER com dados reais antes de publicar: foto (assets/deive.webp), @, seguidores, papel, os 3 números e a frase aprovada -->
+  <!-- DEIVE LEONARDO: quem está com a gente -->
   <section class="autoridade" id="deive">
     <div class="container autoridade-grade">
       <div class="polaroid-area">
-        <div class="cartao-insta"><span class="avatar"><span style="background-image:url(assets/deive.webp)"></span></span><div><b>@[instagram]</b>[00] seguidores</div></div>
+        <div class="cartao-insta" aria-hidden="true"><span class="avatar"><span style="background-image:url(assets/deive-avatar.webp)"></span></span><div><b>Deive Leonardo</b>16M+ seguidores</div></div>
         <figure class="polaroid"><span class="ima c4"></span>
-          <div class="foto">Foto do Deive<img src="assets/deive.webp" alt="Deive Leonardo" loading="lazy" data-reservado="Foto do Deive|assets/deive.webp"></div>
+          <div class="foto"><img src="assets/deive.webp" alt="Deive Leonardo falando ao microfone" width="700" height="875" loading="lazy" data-reservado="Foto do Deive|assets/deive.webp"></div>
           <figcaption>Deive Leonardo</figcaption>
         </figure>
       </div>
       <div class="autoridade-texto">
-        <p class="rotulo-secao">QUEM ESTÁ COM A GENTE</p>
+        <p class="rotulo-secao">SOBRE DEIVE LEONARDO</p>
         <h2>Deive Leonardo</h2>
-        <p class="sub">[Papel do Deive no projeto, em uma linha]</p>
+        <p class="sub">Evangelista e comunicador cristão, referência em mensagens de fé e esperança.</p>
         <div class="grade-numeros">
-          <div class="numero"><span class="ima"></span><b>[00]</b><span>[número 1]</span></div>
-          <div class="numero"><span class="ima c2"></span><b>[00]</b><span>[número 2]</span></div>
-          <div class="numero"><span class="ima c3"></span><b>[00]</b><span>[número 3]</span></div>
+          <div class="numero"><span class="ima"></span><b><span data-contar="16">16</span>M+</b><span>seguidores no Instagram</span></div>
+          <div class="numero"><span class="ima c2"></span><b><span data-contar="10">10</span>M+</b><span>inscritos no YouTube</span></div>
+          <div class="numero"><span class="ima c3"></span><b><span data-contar="7">7</span>M+</b><span>seguidores no TikTok</span></div>
         </div>
-        <blockquote class="bilhete"><span class="ima c3"></span>“[Frase do Deive sobre o Obby da Fé, aprovada por ele.]”<cite>DEIVE LEONARDO</cite></blockquote>
+        <p class="bilhete bio"><span class="ima c3"></span>Com uma linguagem simples e inspiradora, Deive Leonardo leva mensagens sobre Jesus, fé e propósito a milhões de pessoas. Sua comunicação aproxima diferentes gerações da Palavra de Deus, incentivando uma vida guiada pelo amor, pela esperança e pelos valores cristãos.</p>
       </div>
     </div>
   </section>
