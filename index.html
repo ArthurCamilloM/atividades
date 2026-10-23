@@ -226,7 +226,16 @@
     .plano.completo .itens li { border-color: rgba(255,255,255,.1); }
     .itens li::before { content: "✓"; color: var(--verde); font-weight: 900; }
     .plano.completo .itens li::before { color: var(--amarelo-texto); }
-    .itens li.bonus::before { content: "🎁"; }
+    .itens li.bonus::before { content: "✦"; color: var(--dourado); }
+
+    /* ================= ÍCONES DE LINHA (no lugar dos emojis) ================= */
+    .ic { width: 1.15em; height: 1.15em; display: inline-block; vertical-align: -.2em; fill: none; stroke: currentColor; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+    .barra-oferta .ic, .pilula .ic, .destaque-plano .ic, .tranquilo .ic, .seguranca .ic, .selo-seguro .ic, .nota .ic { margin-right: 4px; }
+    .card-b .icone { width: 54px; height: 54px; margin: 0 auto 12px; border-radius: 50%; background: var(--azul-claro); color: var(--dourado-escuro); display: grid; place-items: center; box-shadow: 0 0 0 1px #E6DCC6; }
+    .card-b .icone .ic { width: 26px; height: 26px; stroke-width: 1.7; }
+    .popup .icone-popup { width: 64px; height: 64px; margin: 0 auto 12px; border-radius: 50%; background: var(--azul-claro); color: var(--vermelho); display: grid; place-items: center; }
+    .popup .icone-popup .ic { width: 32px; height: 32px; stroke-width: 1.7; }
+    .tranquilo .ic { color: var(--dourado-escuro); }
     .preco-de { text-decoration: line-through; opacity: .7; font-weight: 600; }
     .preco-por { font-size: .9rem; font-weight: 700; }
     .preco { font-family: "Lora", Georgia, serif; font-size: 3.2rem; font-weight: 700; line-height: 1.05; color: var(--azul); }
@@ -320,13 +329,30 @@
   <!-- <div style="position:fixed;top:0;left:0;right:0;z-index:9999;background:#000;color:#ff0;text-align:center;font:700 12px sans-serif;padding:4px">AMBIENTE DE TESTE LOCAL · DADOS FICTÍCIOS · NÃO PUBLICAR</div> -->
 
   <!-- BARRA DE OFERTA -->
-  <div class="barra-oferta"><span class="timer" id="timer">15:00</span><span id="textoBarra">⚡ Preço de lançamento: +120 atividades bíblicas a partir de R$ 19,90</span></div>
+  <!-- ÍCONES (traço de linha, cor herdada do texto) -->
+  <svg width="0" height="0" style="position:absolute" aria-hidden="true">
+    <symbol id="i-raio" viewBox="0 0 24 24"><path d="M13 2 3 14h9l-1 8 10-12h-9l1-8z"/></symbol>
+    <symbol id="i-chama" viewBox="0 0 24 24"><path d="M8.5 14.5A2.5 2.5 0 0 0 11 12c0-1.4-.5-2-1-3-1.1-2.1-.2-4.1 2-6 .5 2.5 2 4.9 4 6.5 2 1.6 3 3.5 3 5.5a7 7 0 1 1-14 0c0-1.2.4-2.3 1-3a2.5 2.5 0 0 0 2.5 2.5z"/></symbol>
+    <symbol id="i-relogio" viewBox="0 0 24 24"><circle cx="12" cy="13" r="8"/><path d="M12 9v4l2 2M5 3 2 6M22 6l-3-3"/></symbol>
+    <symbol id="i-cadeado" viewBox="0 0 24 24"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></symbol>
+    <symbol id="i-email" viewBox="0 0 24 24"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-10 6L2 7"/></symbol>
+    <symbol id="i-brilho" viewBox="0 0 24 24"><path d="M12 3l1.9 5.6L19.5 10l-5.6 1.9L12 17.5l-1.9-5.6L4.5 10l5.6-1.4z"/><path d="M19 15v4M17 17h4"/></symbol>
+    <symbol id="i-celular" viewBox="0 0 24 24"><rect x="5" y="2" width="14" height="20" rx="2"/><path d="M12 18h.01"/></symbol>
+    <symbol id="i-cronometro" viewBox="0 0 24 24"><circle cx="12" cy="14" r="8"/><path d="M12 10v4M10 2h4"/></symbol>
+    <symbol id="i-escudo" viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="M12 8v6M9 11h6"/></symbol>
+    <symbol id="i-presente" viewBox="0 0 24 24"><rect x="3" y="8" width="18" height="4" rx="1"/><path d="M12 8v13M19 12v7a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2v-7M7.5 8a2.5 2.5 0 0 1 0-5C9 3 12 8 12 8s3-5 4.5-5a2.5 2.5 0 0 1 0 5"/></symbol>
+    <symbol id="i-impressora" viewBox="0 0 24 24"><path d="M6 9V2h12v7M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"/><rect x="6" y="14" width="12" height="8"/></symbol>
+    <symbol id="i-igreja" viewBox="0 0 24 24"><path d="M12 2v5M10 4h4M5 22V12l7-5 7 5v10M2 22h20M10 22v-4a2 2 0 0 1 4 0v4"/></symbol>
+    <symbol id="i-check" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="m9 12 2 2 4-4"/></symbol>
+  </svg>
+
+  <div class="barra-oferta"><span class="timer" id="timer">15:00</span><span id="textoBarra"><svg class="ic"><use href="#i-raio"/></svg>Preço de lançamento: +120 atividades bíblicas a partir de R$ 19,90</span></div>
 
   <!-- POP-UP que abre quando o timer chega em 00:00 (uma vez por visitante) -->
   <div class="popup-fundo" id="popupFim" hidden>
     <div class="popup" role="dialog" aria-modal="true" aria-labelledby="popupTitulo">
       <button class="fechar-x" type="button" aria-label="Fechar" data-fechar>×</button>
-      <div class="icone-popup">⏰</div>
+      <div class="icone-popup"><svg class="ic"><use href="#i-relogio"/></svg></div>
       <h2 id="popupTitulo">Últimas unidades com preço de lançamento</h2>
       <p>Compre agora, antes que as últimas unidades se esgotem. São <b>mais de 120 atividades bíblicas</b> do Obby da Fé a partir de <b>R$ 19,90</b>, em pagamento único.</p>
       <a href="#planos" class="botao" data-fechar>Quero garantir a minha</a>
@@ -337,7 +363,7 @@
   <!-- HERO -->
   <header class="hero">
     <div class="container">
-      <span class="selo-seguro">🔒 Compra 100% segura e protegida</span>
+      <span class="selo-seguro"><svg class="ic"><use href="#i-cadeado"/></svg>Compra 100% segura e protegida</span>
       <h1>Seu filho só quer saber de jogo? Ele vai aprender a Bíblia jogando <span class="destaque">fase por fase, checkpoint por checkpoint</span></h1>
       <p class="apoio">Atividades bíblicas para crianças gamers de 6 a 12 anos</p>
       <p class="versiculo">“Ensina a criança no caminho em que deve andar, e, ainda quando for velho, não se desviará dele.”<cite>PROVÉRBIOS 22.6</cite></p>
@@ -358,7 +384,7 @@
       </ul>
       <a href="#planos" class="botao">Quero a coleção agora</a>
       <p class="preco-topo">A partir de <b>R$ 19,90</b> · pagamento único</p>
-      <p class="nota">📲 PDF para imprimir em casa · acesso na hora, no seu e-mail</p>
+      <p class="nota"><svg class="ic"><use href="#i-email"/></svg>PDF para imprimir em casa · acesso na hora, no seu e-mail</p>
     </div>
   </header>
 
@@ -404,10 +430,10 @@
     <div class="container">
       <h2>O que muda na sua casa</h2>
       <div class="grade-4">
-        <div class="card-b"><div class="icone">✨</div><h3>Seu filho pede para fazer</h3><p>Fases, checkpoints e recompensas, igual ao jogo que ele ama — mesmo que hoje ele só pense em jogar.</p></div>
-        <div class="card-b"><div class="icone">📱</div><h3>Fim da briga pelo tempo de tela</h3><p>"Primeiro a missão, depois o jogo": os Pontos de Luz viram tempo de jogo no fim de semana.</p></div>
-        <div class="card-b"><div class="icone">⏱️</div><h3>Só 15 minutos por dia</h3><p>Roteiro pronto: é imprimir e aplicar. Irmãos de idades diferentes, cada um no seu caderno.</p></div>
-        <div class="card-b"><div class="icone">🛡️</div><h3>Bíblia e segurança on-line</h3><p>Histórias e versículos de verdade, e conversas em família sobre chat, trapaça e desconhecidos.</p></div>
+        <div class="card-b"><div class="icone"><svg class="ic"><use href="#i-brilho"/></svg></div><h3>Seu filho pede para fazer</h3><p>Fases, checkpoints e recompensas, igual ao jogo que ele ama — mesmo que hoje ele só pense em jogar.</p></div>
+        <div class="card-b"><div class="icone"><svg class="ic"><use href="#i-celular"/></svg></div><h3>Fim da briga pelo tempo de tela</h3><p>"Primeiro a missão, depois o jogo": os Pontos de Luz viram tempo de jogo no fim de semana.</p></div>
+        <div class="card-b"><div class="icone"><svg class="ic"><use href="#i-cronometro"/></svg></div><h3>Só 15 minutos por dia</h3><p>Roteiro pronto: é imprimir e aplicar. Irmãos de idades diferentes, cada um no seu caderno.</p></div>
+        <div class="card-b"><div class="icone"><svg class="ic"><use href="#i-escudo"/></svg></div><h3>Bíblia e segurança on-line</h3><p>Histórias e versículos de verdade, e conversas em família sobre chat, trapaça e desconhecidos.</p></div>
       </div>
     </div>
   </section>
@@ -440,7 +466,7 @@
   <!-- O QUE VOCÊ RECEBE -->
   <section class="recebe centro">
     <div class="container">
-      <span class="pilula amarela">⚡ Acesso imediato</span>
+      <span class="pilula amarela"><svg class="ic"><use href="#i-raio"/></svg>Acesso imediato</span>
       <h2>Tudo o que você vai receber</h2>
       <p class="sub">Mais de 120 atividades em 3 cadernos que acompanham a criança dos 6 aos 12 anos. Cada caderno tem 6 fases e dura cerca de 6 semanas.</p>
       <div class="grade-niveis">
@@ -474,7 +500,7 @@
     <div class="container">
       <h2>E não para por aí... tem mais!</h2>
       <p class="sub">No Combo Completo você também recebe seis bônus exclusivos para ampliar a prática e o engajamento.</p>
-      <span class="pilula amarela" style="margin-top:18px">🎁 6 bônus que valem R$ 70,40 — grátis no combo</span>
+      <span class="pilula amarela" style="margin-top:18px"><svg class="ic"><use href="#i-presente"/></svg>6 bônus que valem R$ 70,40 — grátis no combo</span>
       <div class="grade-extras">
         <div class="card-e"><div class="capa"><img src="assets/bonus1.webp" alt="Mapa de Progresso da Fé" loading="lazy" data-reservado="Capa bônus 1|assets/bonus1.webp"></div><div><small>BÔNUS 01</small><h3>Mapa de Progresso da Fé</h3><p>Os 3 mundos e as 18 fases em um mapa para pendurar no quarto, com distintivos para colorir.</p><span class="gratis"><span class="de">R$ 9,90</span>Grátis no combo</span></div></div>
         <div class="card-e"><div class="capa"><img src="assets/bonus2.webp" alt="Cartões de Recompensa" loading="lazy" data-reservado="Capa bônus 2|assets/bonus2.webp"></div><div><small>BÔNUS 02</small><h3>Cartões de Recompensa</h3><p>A loja dos Pontos de Luz: 24 cartões de prêmio, do comum ao lendário, combinados em família.</p><span class="gratis"><span class="de">R$ 9,90</span>Grátis no combo</span></div></div>
@@ -489,7 +515,7 @@
   <!-- PLANOS -->
   <section class="planos centro" id="planos">
     <div class="container">
-      <span class="pilula vermelha">🔥 Preço de lançamento</span>
+      <span class="pilula vermelha"><svg class="ic"><use href="#i-chama"/></svg>Preço de lançamento</span>
       <h2>Escolha a melhor opção para você</h2>
       <div class="grade-planos">
         <div class="plano basico">
@@ -519,7 +545,7 @@
           <span class="rotulo">COMBO COMPLETO</span>
           <div class="img-plano"><img src="assets/combo.webp" alt="Combo completo" loading="lazy" data-reservado="Imagem do combo completo|assets/combo.webp"></div>
           <h3>Combo Completo</h3>
-          <div class="destaque-plano">⚡ Mais conteúdo, mais prática e mais resultados</div>
+          <div class="destaque-plano"><svg class="ic"><use href="#i-raio"/></svg>Mais conteúdo, mais prática e mais resultados</div>
           <p class="rec">Você recebe:</p>
           <ul class="itens">
             <li><b>Mais de 270 atividades e desafios</b></li>
@@ -545,11 +571,11 @@
         </div>
       </div>
       <ul class="tranquilo">
-        <li>🖨️ Imprime em casa, em qualquer impressora</li>
-        <li>⛪ Serve para qualquer igreja</li>
-        <li>✅ Garantia de 7 dias</li>
+        <li><svg class="ic"><use href="#i-impressora"/></svg>Imprime em casa, em qualquer impressora</li>
+        <li><svg class="ic"><use href="#i-igreja"/></svg>Serve para qualquer igreja</li>
+        <li><svg class="ic"><use href="#i-check"/></svg>Garantia de 7 dias</li>
       </ul>
-      <p class="seguranca">🔒 Pagamento seguro por Pix ou cartão • acesso enviado após a confirmação</p>
+      <p class="seguranca"><svg class="ic"><use href="#i-cadeado"/></svg>Pagamento seguro por Pix ou cartão • acesso enviado após a confirmação</p>
     </div>
   </section>
 
@@ -613,7 +639,7 @@
 
       function acabou() {
         el.hidden = true;
-        document.getElementById("textoBarra").textContent = "🔥 Últimas unidades com preço de lançamento: +120 atividades a partir de R$ 19,90";
+        document.getElementById("textoBarra").innerHTML = '<svg class="ic"><use href="#i-chama"/></svg>Últimas unidades com preço de lançamento: +120 atividades a partir de R$ 19,90';
         var visto = false;
         try { visto = localStorage.getItem(CHAVE_POPUP) === "1"; } catch (e) {}
         if (visto) return;
