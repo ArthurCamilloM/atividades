@@ -277,6 +277,18 @@
     .botao-claro:hover .ic { transform: translateX(4px); }
     .cta-final .garantias { margin-top: 18px; font-size: .85rem; color: #3a2a0c; }
 
+    /* ================= EMPURRÃO PARA O COMBO (entre os planos, no celular) ================= */
+    .empurrao-combo { display: none; background: var(--marinho); color: #E8E2D4; border: 1px solid rgba(240,212,134,.25); border-radius: 18px; padding: 24px 20px 18px; text-align: center; }
+    .empurrao-combo h3 { font-family: "Inter", sans-serif; font-weight: 900; text-transform: uppercase; font-size: 1.1rem; color: var(--branco); margin-bottom: 10px; }
+    .empurrao-combo h3 span, .empurrao-combo b { color: var(--amarelo-texto); }
+    .empurrao-combo p { font-size: .92rem; }
+    /* três setas descendo em sequência, apontando para o combo */
+    .setas { display: flex; justify-content: center; gap: 10px; margin-top: 12px; }
+    .setas span { width: 14px; height: 14px; border-right: 3px solid var(--dourado); border-bottom: 3px solid var(--dourado); rotate: 45deg; animation: descer 1.4s ease-in-out infinite; }
+    .setas span:nth-child(2) { animation-delay: .2s; }
+    .setas span:nth-child(3) { animation-delay: .4s; }
+    @keyframes descer { 0%, 100% { translate: 0 0; opacity: .5; } 50% { translate: 0 7px; opacity: 1; } }
+
     /* ================= GARANTIA ================= */
     .garantia { background: var(--fundo-claro); }
     .garantia-caixa { display: grid; grid-template-columns: auto 1fr; gap: 30px; align-items: center; }
@@ -311,6 +323,7 @@
       .grade-numeros { grid-template-columns: repeat(2, 1fr); row-gap: 20px; }
       .grade-extras, .grade-planos { grid-template-columns: 1fr; }
       .grade-planos { gap: 34px; }
+      .empurrao-combo { display: block; }
       /* benefícios e passos ficam em 2 colunas compactas no celular */
       .grade-4 { gap: 10px; }
       .card-b, .passo { padding: 16px 12px; }
@@ -583,6 +596,13 @@
           <a href="https://pay.wiapy.com/wQqwLQW5Hn0" class="botao largo">Quero o plano básico</a>
         </div>
 
+        <!-- Empurrão para o combo: só aparece no celular, onde os planos ficam um embaixo do outro -->
+        <div class="empurrao-combo">
+          <h3>Ainda dá tempo de levar a <span>melhor opção!</span></h3>
+          <p>Por só <b>R$ 8 a mais</b>, você leva os <b>6 bônus</b> que valem R$ 70,40 no Combo Completo.</p>
+          <div class="setas" aria-hidden="true"><span></span><span></span><span></span></div>
+        </div>
+
         <div class="plano completo">
           <span class="faixa-topo">MAIS ESCOLHIDO</span>
           <span class="rotulo">COMBO COMPLETO</span>
@@ -676,7 +696,7 @@
     // Números com data-contar sobem de 0 até o valor quando ficam visíveis.
     (function () {
       if (!("IntersectionObserver" in window) || window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
-      var alvos = "section h2, section .sub, section .pilula, .carrossel, .card-b, .passo, .nivel, .card-e, .plano, .tranquilo, .garantia-caixa, details, .urgencia .botao, .numero, .cta-final .icone-cta, .botao-claro, .cta-final .garantias";
+      var alvos = "section h2, section .sub, section .pilula, .carrossel, .card-b, .passo, .nivel, .card-e, .plano, .tranquilo, .garantia-caixa, details, .urgencia .botao, .numero, .cta-final .icone-cta, .botao-claro, .cta-final .garantias, .empurrao-combo";
       var obs = new IntersectionObserver(function (entradas) {
         entradas.forEach(function (e) {
           if (!e.isIntersecting) return;
