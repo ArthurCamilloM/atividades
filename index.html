@@ -164,6 +164,7 @@
     .trilho > * { flex: 0 0 auto; scroll-snap-align: center; }
     .pagina { position: relative; width: min(74vw, 320px); background: var(--papel); padding: 6px; border-radius: 6px; box-shadow: var(--sombra-papel); }
     .pagina:nth-child(odd) { rotate: -1.2deg; } .pagina:nth-child(even) { rotate: 1.2deg; }
+    .pagina .selo-bonus { position: absolute; right: -8px; bottom: 18px; background: var(--sol); color: var(--roxo-noite); font-weight: 900; font-size: .78rem; padding: 5px 10px; border-radius: 6px; rotate: 4deg; box-shadow: 0 4px 10px rgba(37,29,69,.25); }
     .pagina img { width: 100%; height: auto; aspect-ratio: 700 / 991; object-fit: contain; border-radius: 3px; }
     .setas-varal { display: flex; justify-content: center; gap: 12px; }
     .setas-varal button { width: 48px; height: 48px; border-radius: 12px; border: 2px solid var(--lilas-borda); background: var(--papel); color: var(--roxo); cursor: pointer; display: grid; place-items: center; }
@@ -448,6 +449,12 @@
         <div class="pagina"><span class="ima c2"></span><img src="assets/pagina-escolha-heroi.webp" alt="Página Escolha seu Herói" loading="lazy" width="700" height="991" data-reservado="Escolha seu herói|assets/pagina-escolha-heroi.webp"></div>
         <div class="pagina"><span class="ima c3"></span><img src="assets/pagina-abraao.webp" alt="Página da Fase 3, Abraão e as estrelas" loading="lazy" width="700" height="991" data-reservado="Fase Abraão|assets/pagina-abraao.webp"></div>
         <div class="pagina"><span class="ima c4"></span><img src="assets/pagina-colorir-davi.webp" alt="Página para colorir, Davi contra o gigante" loading="lazy" width="700" height="991" data-reservado="Colorir Davi|assets/pagina-colorir-davi.webp"></div>
+        <div class="pagina"><span class="ima c2"></span><img src="assets/pagina-mapa-progresso.webp" alt="Página do bônus Mapa de Progresso da Fé" loading="lazy" width="700" height="991" data-reservado="pagina-mapa-progresso|assets/pagina-mapa-progresso.webp"><span class="selo-bonus">Bônus do Combo</span></div>
+        <div class="pagina"><span class="ima c3"></span><img src="assets/pagina-loja-cartoes.webp" alt="Página do bônus Cartões de Recompensa, loja de prêmios" loading="lazy" width="700" height="991" data-reservado="pagina-loja-cartoes|assets/pagina-loja-cartoes.webp"><span class="selo-bonus">Bônus do Combo</span></div>
+        <div class="pagina"><span class="ima c4"></span><img src="assets/pagina-quiz.webp" alt="Página do bônus 100 Perguntas da Bíblia, como jogar o quiz" loading="lazy" width="700" height="991" data-reservado="pagina-quiz|assets/pagina-quiz.webp"><span class="selo-bonus">Bônus do Combo</span></div>
+        <div class="pagina"><span class="ima"></span><img src="assets/pagina-versiculos.webp" alt="Página do bônus Versículos Visuais, cartões ilustrados" loading="lazy" width="700" height="991" data-reservado="pagina-versiculos|assets/pagina-versiculos.webp"><span class="selo-bonus">Bônus do Combo</span></div>
+        <div class="pagina"><span class="ima c2"></span><img src="assets/pagina-frases-prontas.webp" alt="Página do bônus Guia Rápido para os Pais, frases prontas" loading="lazy" width="700" height="991" data-reservado="pagina-frases-prontas|assets/pagina-frases-prontas.webp"><span class="selo-bonus">Bônus do Combo</span></div>
+        <div class="pagina"><span class="ima c3"></span><img src="assets/pagina-desafio-30-dias.webp" alt="Página do bônus Desafio 30 Dias do Jogador da Fé, calendário" loading="lazy" width="700" height="991" data-reservado="pagina-desafio-30-dias|assets/pagina-desafio-30-dias.webp"><span class="selo-bonus">Bônus do Combo</span></div>
       </div>
       <div class="setas-varal">
         <button type="button" data-trilho="trilhoPaginas" data-dir="-1" aria-label="Página anterior"><svg class="ic" aria-hidden="true"><use href="#i-seta-esq"/></svg></button>
