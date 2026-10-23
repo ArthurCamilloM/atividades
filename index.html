@@ -566,8 +566,14 @@
     </div>
     <div class="varal">
       <div class="trilho" id="trilhoDepoimentos" tabindex="0" aria-label="Mensagens de clientes">
-        <!-- O depoimento2 é o que fala do Obby da Fé: fica em primeiro. Coloque prints REAIS com estes nomes de arquivo -->
+        <!-- Prints de clientes, na ordem em que aparecem (assets/depoimento2.webp ... depoimento8.webp) -->
         <div class="print"><span class="ima c3"></span><img src="assets/depoimento2.webp" alt="Mensagem de uma mãe sobre o Obby da Fé" loading="lazy" data-depoimento></div>
+        <div class="print"><span class="ima c4"></span><img src="assets/depoimento3.webp" alt="Conversa com Júlia: o filho viu as atividades na mesa e quis começar, com foto dele fazendo a Fase 1" loading="lazy" data-depoimento></div>
+        <div class="print"><span class="ima"></span><img src="assets/depoimento4.webp" alt="Conversa com Maria: o filho pede para fazer as atividades e o contrato de tela melhorou a rotina" loading="lazy" data-depoimento></div>
+        <div class="print"><span class="ima c2"></span><img src="assets/depoimento5.webp" alt="Conversa com Ana: o filho adorou o formato de fases e o quadro de recompensas ajudou na rotina" loading="lazy" data-depoimento></div>
+        <div class="print"><span class="ima c3"></span><img src="assets/depoimento6.webp" alt="Conversa com Francisca: o filho pede para fazer as atividades todos os dias" loading="lazy" data-depoimento></div>
+        <div class="print"><span class="ima c4"></span><img src="assets/depoimento7.webp" alt="Conversa com Juliana: dúvida sobre o PDF, compra e o filho fazendo as primeiras atividades" loading="lazy" data-depoimento></div>
+        <div class="print"><span class="ima"></span><img src="assets/depoimento8.webp" alt="Conversa com Antônia: comprou para tirar o filho do celular e vai imprimir em casa" loading="lazy" data-depoimento></div>
       </div>
       <div class="setas-varal">
         <button type="button" data-trilho="trilhoDepoimentos" data-dir="-1" aria-label="Depoimento anterior"><svg class="ic" aria-hidden="true"><use href="#i-seta-esq"/></svg></button>
@@ -834,7 +840,7 @@
       });
     });
 
-    // Depoimentos: cada print só aparece se o arquivo existir (assets/depoimento1.webp ... 6).
+    // Depoimentos: cada print só aparece se o arquivo existir (assets/depoimento2.webp ... 8).
     // Sem nenhum print, a seção inteira fica escondida.
     (function () {
       var secao = document.getElementById("depoimentos");
