@@ -310,6 +310,18 @@
     .barra-compra div b { display: block; font-family: "Fraunces", Georgia, serif; font-size: 1.3rem; color: var(--roxo); }
     .barra-compra .botao { min-height: 48px; padding: 12px 20px; font-size: 1rem; }
 
+    /* ================= AVISO DE DEPOIMENTO (canto da tela) =================
+       Frases curtas dos prints reais, uma de cada vez. No celular sobe acima da barra de compra (--acima). */
+    .aviso-cliente { position: fixed; left: 20px; bottom: calc(20px + max(var(--acima, 0px), env(safe-area-inset-bottom))); z-index: 450; display: flex; align-items: center; gap: 12px; max-width: 370px; padding: 12px 18px 12px 12px; background: var(--papel); border: 1px solid var(--lilas-borda); border-radius: 18px; box-shadow: var(--sombra-papel); color: var(--texto); text-decoration: none; line-height: 1.35; visibility: hidden; opacity: 0; transform: translateY(22px); transition: opacity .35s ease, transform .6s cubic-bezier(.2,.8,.2,1), visibility 0s .6s; }
+    .aviso-cliente.mostrar { visibility: visible; opacity: 1; transform: none; transition-delay: 0s; }
+    .aviso-cliente .icone-aviso { flex-shrink: 0; width: 44px; height: 44px; border-radius: 50%; background: var(--lilas); color: var(--roxo); display: grid; place-items: center; }
+    .aviso-cliente .icone-aviso .ic { width: 22px; height: 22px; }
+    .aviso-cliente .texto-aviso { font-size: .92rem; font-weight: 600; }
+    .aviso-cliente .texto-aviso b { font-weight: 900; }
+    .aviso-cliente small { display: flex; align-items: center; gap: 5px; margin-top: 3px; font-size: .78rem; font-weight: 700; color: var(--texto-suave); }
+    .aviso-cliente small .ic { width: 1.05em; height: 1.05em; }
+    .aviso-cliente small strong { color: var(--roxo); font-weight: 900; }
+
     /* ================= APARECER AO ROLAR =================
        O JavaScript coloca .revelar nos blocos e .visivel quando eles entram na tela.
        Sem JavaScript nada fica escondido. As folhas "grudam" na porta com um tranco de ímã. */
@@ -355,6 +367,7 @@
       .empurrao-combo { display: block; }
       .garantia-caixa { grid-template-columns: 1fr; text-align: center; justify-items: center; }
       .barra-compra { display: flex; }
+      .aviso-cliente { left: 12px; right: 12px; bottom: calc(12px + max(var(--acima, 0px), env(safe-area-inset-bottom))); max-width: none; }
       .barra-oferta { font-size: .78rem; }
     }
     @media (prefers-reduced-motion: reduce) { * { animation: none !important; transition: none !important; } html { scroll-behavior: auto; } }
@@ -395,6 +408,8 @@
     <symbol id="i-youtube" viewBox="0 0 24 24"><path d="M9.5 7.5v9l7.5-4.5z" fill="currentColor"/></symbol>
     <symbol id="i-tiktok" viewBox="0 0 24 24"><path d="M12.53.02c1.31-.02 2.61-.01 3.91-.02.08 1.53.63 3.09 1.75 4.17 1.12 1.11 2.7 1.62 4.24 1.79v4.03c-1.44-.05-2.89-.35-4.2-.97-.57-.26-1.1-.59-1.62-.93-.01 2.92.01 5.84-.02 8.75-.08 1.4-.54 2.79-1.35 3.94-1.31 1.92-3.58 3.17-5.91 3.21-1.43.08-2.86-.31-4.08-1.03-2.02-1.19-3.44-3.37-3.65-5.71-.02-.5-.03-1-.01-1.49.18-1.9 1.12-3.72 2.58-4.96 1.66-1.44 3.98-2.13 6.15-1.72.02 1.48-.04 2.96-.04 4.44-.99-.32-2.15-.23-3.02.37-.63.41-1.11 1.04-1.36 1.75-.21.51-.15 1.07-.14 1.61.24 1.64 1.82 3.02 3.5 2.87 1.12-.01 2.19-.66 2.77-1.61.19-.33.4-.67.41-1.06.1-1.79.06-3.57.07-5.36.01-4.03-.01-8.05.02-12.07z" fill="currentColor"/></symbol>
     <symbol id="i-seta-esq" viewBox="0 0 24 24"><path d="M19 12H5M11 6l-6 6 6 6"/></symbol>
+    <symbol id="i-coracao" viewBox="0 0 24 24"><path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7z"/></symbol>
+    <symbol id="i-balao" viewBox="0 0 24 24"><path d="M7.9 20A9 9 0 1 0 4 16.1L2 22z"/></symbol>
   </svg>
 
   <!-- BARRA DE OFERTA: fixa no topo, uma linha, leva aos planos -->
@@ -730,6 +745,14 @@
     <a href="https://pay.wiapy.com/F_hVchrjozRG" class="botao" tabindex="-1">Quero as +500 páginas</a>
   </div>
 
+  <!-- AVISO DE DEPOIMENTO: repete frases dos prints da seção de depoimentos; tocar leva até eles -->
+  <a class="aviso-cliente" id="avisoCliente" href="#depoimentos" tabindex="-1" aria-hidden="true">
+    <span class="icone-aviso"><svg class="ic"><use href="#i-coracao"/></svg></span>
+    <span class="texto-aviso"><b data-nome></b> <span data-frase></span>
+      <small><svg class="ic"><use href="#i-balao"/></svg>Cliente do <strong>Obby da Fé</strong></small>
+    </span>
+  </a>
+
   <script>
     // Ano do rodapé
     document.getElementById("ano").textContent = new Date().getFullYear();
@@ -828,6 +851,56 @@
       }
       new IntersectionObserver(function (e) { portaVisivel = e[0].isIntersecting; atualizar(); }).observe(porta);
       new IntersectionObserver(function (e) { planosVisiveis = e[0].isIntersecting; atualizar(); }, { rootMargin: "0px 0px -20% 0px" }).observe(planos);
+    })();
+
+    // Aviso de depoimento: frases curtas tiradas dos prints reais, uma de cada vez no canto da tela.
+    // Cada frase aparece uma vez por visita; com o mouse em cima ele espera; tocar leva aos prints e encerra.
+    (function () {
+      var aviso = document.getElementById("avisoCliente");
+      if (!aviso) return;
+      var FRASES = [
+        ["Francisca O.", "Ele amou! Tá pedindo pra fazer as atividades todos os dias."],
+        ["Maria S.", "Agora ele mesmo já está pedindo pra fazer as atividades!"],
+        ["Mariana S.", "Gente, foi um sucesso!"],
+        ["Ana S.", "Ele adorou o formato de fases e agora pede pra fazer a lição."],
+        ["Júlia S.", "Já indiquei pra minha cunhada também."],
+        ["Juliana F.", "Olha, ele amou! Já fez as primeiras atividades agora de manhã."],
+        ["Mariana S.", "O contrato de tela ajudou muito aqui em casa."],
+        ["Maria S.", "A rotina aqui melhorou muito!"],
+        ["Antônia P.", "É bem completo, né?"]
+      ];
+      var PRIMEIRO = 12000, VISIVEL = 6000, INTERVALO = 20000;
+      var nome = aviso.querySelector("[data-nome]"), frase = aviso.querySelector("[data-frase]");
+      var barra = document.getElementById("barraCompra"), popup = document.getElementById("popupFim");
+      var i = 0, esconderEm = null, parado = false;
+
+      function mostrar() {
+        if (parado || i >= FRASES.length) return;
+        // espera o pop-up do timer fechar e a aba voltar a ficar visível
+        if ((popup && !popup.hidden) || document.hidden) { setTimeout(mostrar, 5000); return; }
+        nome.textContent = FRASES[i][0];
+        frase.textContent = "“" + FRASES[i][1] + "”";
+        i++;
+        var acima = barra && barra.classList.contains("ativa") ? barra.offsetHeight : 0;
+        aviso.style.setProperty("--acima", acima + "px");
+        aviso.classList.add("mostrar");
+        esconderEm = setTimeout(esconder, VISIVEL);
+      }
+      function esconder() {
+        clearTimeout(esconderEm);
+        aviso.classList.remove("mostrar");
+        setTimeout(mostrar, INTERVALO);
+      }
+      aviso.addEventListener("mouseenter", function () { clearTimeout(esconderEm); });
+      aviso.addEventListener("mouseleave", function () {
+        if (aviso.classList.contains("mostrar")) esconderEm = setTimeout(esconder, 2500);
+      });
+      aviso.addEventListener("click", function () {
+        parado = true;
+        clearTimeout(esconderEm);
+        aviso.classList.remove("mostrar");
+      });
+      setTimeout(mostrar, PRIMEIRO);
     })();
 
     // Setas dos varais (páginas e depoimentos): rolam um item por vez
