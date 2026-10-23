@@ -228,6 +228,19 @@
     .plano.completo .itens li::before { color: var(--amarelo-texto); }
     .itens li.bonus::before { content: "✦"; color: var(--dourado); }
 
+    /* ================= APARECER AO ROLAR =================
+       O JavaScript coloca .revelar nos blocos e .visivel quando eles entram na tela.
+       Sem JavaScript nada fica escondido. */
+    .revelar { opacity: 0; transform: translateY(24px); transition: opacity .7s ease-out, transform .7s ease-out; transition-delay: var(--atraso-revelar, 0s); }
+    .revelar.visivel { opacity: 1; transform: none; }
+
+    /* ================= NÚMEROS QUE SOBEM ================= */
+    .numeros { background: var(--fundo-claro); padding: 34px 0; border-bottom: 1px solid #ECE3D0; }
+    .grade-numeros { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; text-align: center; }
+    .numero b { display: block; font-family: "Lora", Georgia, serif; font-size: clamp(2rem, 6vw, 2.8rem); font-weight: 700; color: var(--azul); line-height: 1.1; font-variant-numeric: tabular-nums; }
+    .numero b .mais { color: var(--dourado); }
+    .numero > span { font-size: .8rem; font-weight: 600; color: var(--texto-suave); text-transform: uppercase; letter-spacing: .08em; }
+
     /* ================= ÍCONES DE LINHA (no lugar dos emojis) ================= */
     .ic { width: 1.15em; height: 1.15em; display: inline-block; vertical-align: -.2em; fill: none; stroke: currentColor; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
     .barra-oferta .ic, .pilula .ic, .destaque-plano .ic, .tranquilo .ic, .seguranca .ic, .selo-seguro .ic, .nota .ic { margin-right: 4px; }
@@ -278,6 +291,8 @@
     }
     @media (max-width: 720px) {
       section { padding: 56px 0; }
+      .numeros { padding: 26px 0; }
+      .grade-numeros { grid-template-columns: repeat(2, 1fr); row-gap: 20px; }
       .grade-extras, .grade-planos { grid-template-columns: 1fr; }
       .grade-planos { gap: 34px; }
       /* benefícios e passos ficam em 2 colunas compactas no celular */
@@ -387,6 +402,16 @@
       <p class="nota"><svg class="ic"><use href="#i-email"/></svg>PDF para imprimir em casa · acesso na hora, no seu e-mail</p>
     </div>
   </header>
+
+  <!-- NÚMEROS (sobem de 0 até o valor quando aparecem na tela) -->
+  <section class="numeros">
+    <div class="container grade-numeros">
+      <div class="numero"><b><span class="mais">+</span><span data-contar="120">120</span></b><span>atividades</span></div>
+      <div class="numero"><b><span data-contar="18">18</span></b><span>fases bíblicas</span></div>
+      <div class="numero"><b><span data-contar="3">3</span></b><span>cadernos por idade</span></div>
+      <div class="numero"><b><span data-contar="6">6</span></b><span>bônus no combo</span></div>
+    </div>
+  </section>
 
   <!-- VEJA POR DENTRO -->
   <section class="preview centro">
@@ -618,6 +643,44 @@
   <script>
     // Ano do rodapé
     document.getElementById("ano").textContent = new Date().getFullYear();
+
+    // Blocos aparecem aos poucos ao rolar; cartões lado a lado entram um depois do outro.
+    // Números com data-contar sobem de 0 até o valor quando ficam visíveis.
+    (function () {
+      if (!("IntersectionObserver" in window) || window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+      var alvos = "section h2, section .sub, section .pilula, .carrossel, .card-b, .passo, .nivel, .card-e, .plano, .tranquilo, .garantia-caixa, details, .urgencia .botao, .faq .botao, .numero";
+      var obs = new IntersectionObserver(function (entradas) {
+        entradas.forEach(function (e) {
+          if (!e.isIntersecting) return;
+          e.target.classList.add("visivel");
+          e.target.querySelectorAll("[data-contar]").forEach(contar);
+          obs.unobserve(e.target);
+        });
+      }, { threshold: 0.15, rootMargin: "0px 0px -40px 0px" });
+
+      document.querySelectorAll(alvos).forEach(function (el) {
+        if (el.closest(".hero")) return;
+        // irmãos do mesmo tipo (cartões em grade) entram em sequência
+        var irmaos = [].filter.call(el.parentElement.children, function (x) { return x.className === el.className; });
+        var i = irmaos.indexOf(el);
+        if (i > 0) el.style.setProperty("--atraso-revelar", Math.min(i, 5) * 0.12 + "s");
+        el.classList.add("revelar");
+        obs.observe(el);
+      });
+
+      function contar(el) {
+        var fim = Number(el.dataset.contar), inicio = null, DURACAO = 1800;
+        el.textContent = "0";
+        function passo(agora) {
+          if (inicio === null) inicio = agora;
+          var t = Math.min((agora - inicio) / DURACAO, 1);
+          var suave = 1 - Math.pow(1 - t, 3); // começa rápido e desacelera no final
+          el.textContent = Math.round(fim * suave);
+          if (t < 1) requestAnimationFrame(passo);
+        }
+        requestAnimationFrame(passo);
+      }
+    })();
 
     // Timer de 15 minutos na barra do topo. O fim fica salvo no navegador da pessoa,
     // então recarregar a página não reinicia a contagem. Em 00:00 a barra muda de texto
