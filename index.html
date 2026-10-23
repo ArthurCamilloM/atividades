@@ -36,6 +36,48 @@
       --sombra: 0 8px 26px rgba(34, 50, 74, .08);
     }
 
+    /* ================= TESTE: 3 PALETAS PARA COMPARAR (seletor no canto da tela) ================= */
+    /* A) Lilás da Fé: roxo das capas + amarelo-sol + verde */
+    :root[data-paleta="lilas"] {
+      --azul: #5B3FC4; --azul-escuro: #3E2A93; --azul-claro: #F1ECFF;
+      --verde: #1FA35C; --verde-escuro: #16824A;
+      --dourado: #FFC83D; --dourado-escuro: #9A6A00; --vermelho: #E5484D;
+      --amarelo: #FFE9A8; --amarelo-texto: #FFD45C; --marinho: #251D45;
+      --roxo-1: #5B3FC4; --roxo-2: #3E2A93; --texto: #251D45; --texto-suave: #625C78; --fundo-claro: #FAF8FF;
+      --hero-topo: #7A5CE6; --luz: rgba(255,212,92,.40); --cta-1: #FFE08A; --cta-2: #FFC83D; --cta-3: #F7A928;
+    }
+    /* B) Azul Royal: azul forte e vivo, mais contraste */
+    :root[data-paleta="royal"] {
+      --azul: #1E4FD8; --azul-escuro: #153A9E; --azul-claro: #EAF0FF;
+      --verde: #16A34A; --verde-escuro: #12813B;
+      --dourado: #FFC531; --dourado-escuro: #9A6800; --vermelho: #EF4444;
+      --amarelo: #FFE8A3; --amarelo-texto: #FFD23F; --marinho: #0F1E46;
+      --roxo-1: #1E4FD8; --roxo-2: #153A9E; --texto: #14213D; --texto-suave: #56627A; --fundo-claro: #F6F8FC;
+      --hero-topo: #3A6CF0; --luz: rgba(255,210,63,.35); --cta-1: #FFE27A; --cta-2: #FFC531; --cta-3: #F5A30B;
+    }
+    /* C) Cores do Obby: céu claro das capas com as 4 cores do logo (vermelho, amarelo, verde, azul) */
+    :root[data-paleta="obby"] {
+      --azul: #1E88E5; --azul-escuro: #1565C0; --azul-claro: #E8F4FE;
+      --verde: #22B04B; --verde-escuro: #18893A;
+      --dourado: #FFC107; --dourado-escuro: #A16F00; --vermelho: #E53935;
+      --amarelo: #FFECB3; --amarelo-texto: #FFD54F; --marinho: #1B2A4A;
+      --roxo-1: #1E88E5; --roxo-2: #1565C0; --texto: #1B2A4A; --texto-suave: #5A6578; --fundo-claro: #F7FBFF;
+      --hero-topo: #BFE6FF; --luz: rgba(255,255,255,.75); --cta-1: #FFE57F; --cta-2: #FFC107; --cta-3: #FFA000;
+    }
+    /* no "Cores do Obby" o topo é claro, então o texto do topo fica escuro */
+    :root[data-paleta="obby"] .hero { background: radial-gradient(ellipse 70% 55% at 50% -5%, var(--luz), transparent 70%), linear-gradient(180deg, #BFE6FF 0%, #8FD0FF 55%, #5EB3F5 100%); color: var(--marinho); }
+    :root[data-paleta="obby"] .hero h1 .destaque { color: #E53935; }
+    :root[data-paleta="obby"] .hero .apoio, :root[data-paleta="obby"] .versiculo { color: var(--marinho); }
+    :root[data-paleta="obby"] .versiculo cite { color: #1565C0; }
+    :root[data-paleta="obby"] .selo-seguro { color: var(--marinho); background: rgba(255,255,255,.7); border-color: rgba(27,42,74,.15); }
+    :root[data-paleta="obby"] .preco-topo b { color: #E53935; }
+
+    .seletor-paleta { position: fixed; left: 12px; bottom: 12px; z-index: 900; display: flex; flex-wrap: wrap; gap: 6px; max-width: calc(100vw - 24px); background: rgba(15,23,42,.88); padding: 8px; border-radius: 14px; box-shadow: 0 8px 24px rgba(0,0,0,.3); font: 700 12px/1 "Nunito", sans-serif; }
+    .seletor-paleta span { color: #fff; align-self: center; padding: 0 4px; }
+    .seletor-paleta button { border: 0; border-radius: 999px; padding: 7px 9px; cursor: pointer; font: inherit; background: #fff; color: #0f172a; }
+    @media (max-width: 420px) { .seletor-paleta span { display: none; } .seletor-paleta { gap: 4px; padding: 6px; } }
+    .seletor-paleta button[aria-pressed="true"] { background: #FFC531; }
+
     * { box-sizing: border-box; margin: 0; padding: 0; }
     [hidden] { display: none !important; }
     html { scroll-behavior: smooth; scroll-padding-top: 60px; } /* os botões "#planos" param abaixo da barra fixa */
@@ -103,8 +145,8 @@
     /* topo: céu azul com a luz do sol vindo de cima */
     .hero {
       background:
-        radial-gradient(ellipse 70% 55% at 50% -5%, rgba(255,214,107,.45), transparent 70%),
-        linear-gradient(180deg, #4189D2 0%, var(--azul) 45%, var(--azul-escuro) 100%);
+        radial-gradient(ellipse 70% 55% at 50% -5%, var(--luz, rgba(255,214,107,.45)), transparent 70%),
+        linear-gradient(180deg, var(--hero-topo, #4189D2) 0%, var(--azul) 45%, var(--azul-escuro) 100%);
       color: var(--branco); padding: 34px 0 70px; text-align: center;
     }
     .selo-seguro { display: inline-block; background: rgba(255,255,255,.12); color: #F3EDE1; border: 1px solid rgba(255,214,107,.45); font-size: .74rem; font-weight: 600; padding: 6px 14px; border-radius: 999px; margin-bottom: 22px; }
@@ -249,7 +291,7 @@
     .tranquilo li { background: var(--azul-claro); color: var(--azul); font-size: .85rem; font-weight: 600; padding: 8px 14px; border-radius: 999px; }
 
     /* ================= CHAMADA FINAL (faixa dourada) ================= */
-    .cta-final { background: linear-gradient(120deg, #FFE08A 0%, #F8C64A 55%, #F2B02E 100%); color: var(--marinho); padding: 76px 0; }
+    .cta-final { background: linear-gradient(120deg, var(--cta-1, #FFE08A) 0%, var(--cta-2, #F8C64A) 55%, var(--cta-3, #F2B02E) 100%); color: var(--marinho); padding: 76px 0; }
     .cta-final .icone-cta { width: 40px; height: 40px; stroke-width: 1.8; margin-bottom: 10px; }
     .cta-final h2 { color: var(--marinho); font-size: clamp(1.9rem, 5vw, 3rem); max-width: 720px; margin: 0 auto 12px; }
     section.cta-final > .container > h2::after { display: none; }
@@ -358,6 +400,15 @@
 </head>
 <body>
   <!-- <div style="position:fixed;top:0;left:0;right:0;z-index:9999;background:#000;color:#ff0;text-align:center;font:700 12px sans-serif;padding:4px">AMBIENTE DE TESTE LOCAL · DADOS FICTÍCIOS · NÃO PUBLICAR</div> -->
+
+  <!-- TESTE: seletor de paletas (não vai para o site publicado) -->
+  <div class="seletor-paleta" id="seletorPaleta">
+    <span>Paleta:</span>
+    <button type="button" data-p="">Atual</button>
+    <button type="button" data-p="lilas">A · Lilás</button>
+    <button type="button" data-p="royal">B · Royal</button>
+    <button type="button" data-p="obby">C · Obby</button>
+  </div>
 
   <!-- BARRA DE OFERTA -->
   <!-- ÍCONES (traço de linha, cor herdada do texto) -->
@@ -673,6 +724,20 @@
   <script>
     // Ano do rodapé
     document.getElementById("ano").textContent = new Date().getFullYear();
+
+    // TESTE: troca de paleta pelo seletor do canto (lembra a escolha neste navegador)
+    (function () {
+      var botoes = document.querySelectorAll("#seletorPaleta button");
+      function aplicar(p) {
+        if (p) document.documentElement.dataset.paleta = p; else delete document.documentElement.dataset.paleta;
+        botoes.forEach(function (b) { b.setAttribute("aria-pressed", String(b.dataset.p === p)); });
+        try { localStorage.setItem("paletaTeste", p); } catch (e) {}
+      }
+      botoes.forEach(function (b) { b.addEventListener("click", function () { aplicar(b.dataset.p); }); });
+      var salva = "";
+      try { salva = localStorage.getItem("paletaTeste") || ""; } catch (e) {}
+      aplicar(salva);
+    })();
 
     // Blocos aparecem aos poucos ao rolar; cartões lado a lado entram um depois do outro.
     // Números com data-contar sobem de 0 até o valor quando ficam visíveis.
