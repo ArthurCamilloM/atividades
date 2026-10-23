@@ -182,6 +182,31 @@
     .nivel p { font-size: .92rem; color: var(--texto-suave); }
     .aviso-niveis { margin-top: 22px; font-weight: 800; color: var(--roxo); }
 
+    /* ================= DEIVE: a polaroid presa na geladeira ================= */
+    .autoridade { background: var(--lilas); }
+    .autoridade-grade { display: grid; gap: 40px; align-items: center; }
+    .polaroid-area { position: relative; width: min(84%, 380px); margin: 0 auto; }
+    .polaroid { position: relative; background: var(--papel); padding: 10px 10px 0; border-radius: 4px; rotate: -2deg; box-shadow: var(--sombra-papel); }
+    .polaroid .foto { position: relative; aspect-ratio: 4 / 5; border-radius: 2px; overflow: hidden; background: var(--lilas-borda); display: grid; place-items: center; color: var(--roxo); font-weight: 800; font-size: .9rem; }
+    .polaroid .foto img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+    .polaroid figcaption { font-family: "Fraunces", Georgia, serif; font-style: italic; font-size: 1.15rem; color: var(--roxo-escuro); text-align: center; padding: 10px 0 14px; }
+    .cartao-insta { position: absolute; left: -6%; top: 14%; display: flex; align-items: center; gap: 8px; background: var(--papel); border-radius: 12px; padding: 8px 12px 8px 8px; rotate: 3deg; box-shadow: 0 10px 22px rgba(37,29,69,.22); font-size: .78rem; line-height: 1.25; color: var(--texto-suave); font-weight: 700; z-index: 3; }
+    .cartao-insta .avatar { width: 38px; height: 38px; border-radius: 50%; padding: 2px; background: linear-gradient(45deg, #F2A900, #E5484D, #8B3FC4); flex-shrink: 0; }
+    .cartao-insta .avatar span { display: block; width: 100%; height: 100%; border-radius: 50%; border: 2px solid var(--papel); background: var(--lilas-borda) center / cover no-repeat; }
+    .cartao-insta b { display: block; color: var(--texto); font-weight: 900; }
+    .autoridade-texto .rotulo-secao { font-size: .82rem; font-weight: 900; letter-spacing: .12em; color: var(--roxo); margin-bottom: 6px; }
+    .autoridade-texto h2 { margin-bottom: 4px; }
+    .autoridade-texto .sub { margin: 0; }
+    .autoridade .grade-numeros { grid-template-columns: repeat(3, 1fr); margin-top: 26px; }
+    .autoridade .numero b { font-size: clamp(1.6rem, 5vw, 2.2rem); }
+    .bilhete { position: relative; margin-top: 30px; background: var(--sol-claro); color: #4a3700; padding: 22px 20px 16px; border-radius: 6px; rotate: 1deg; box-shadow: var(--sombra-papel); font-family: "Fraunces", Georgia, serif; font-style: italic; font-size: 1.08rem; line-height: 1.5; }
+    .bilhete cite { display: block; margin-top: 8px; font-family: "Nunito", sans-serif; font-style: normal; font-size: .82rem; font-weight: 900; letter-spacing: .08em; color: #6b5200; }
+
+    /* selo pequeno no topo: quem assina junto */
+    .com-deive { display: flex; align-items: center; gap: 8px; width: fit-content; margin: 0 auto; padding: 3px 12px 3px 3px; text-decoration: none; background: var(--papel); border-radius: 999px; box-shadow: var(--sombra-papel); font-weight: 700; font-size: .92rem; color: var(--texto-suave); }
+    .com-deive .avatar { width: 28px; height: 28px; border-radius: 50%; background: var(--lilas-borda) center / cover no-repeat; border: 2px solid var(--sol); flex-shrink: 0; }
+    .com-deive b { color: var(--roxo-escuro); font-weight: 900; }
+
     /* ================= BÔNUS ================= */
     /* a porta de baixo da geladeira: as 6 capas dos bônus presas por ímãs, cada uma com sua etiqueta de papel */
     .bonus-sec { background: var(--lilas); }
@@ -294,6 +319,8 @@
       .hero-grade { grid-template-columns: 1fr 1fr; align-items: center; gap: 48px; }
       .hero h1, .apoio, .versiculo { text-align: left; }
       .versiculo { margin-left: 0; }
+      .com-deive { margin: 14px 0 0; }
+      .autoridade-grade { grid-template-columns: 5fr 7fr; gap: 64px; }
       .lista-check { margin-top: 26px; }
       .porta { margin-top: 0; }
       .semana-grade { grid-template-columns: 1fr 1fr; }
@@ -302,13 +329,14 @@
     @media (max-width: 899px) {
       /* no celular a porta (com o preço) vem logo depois do título; a lista e o versículo descem */
       .hero-texto { display: contents; }
-      .hero h1 { order: 1; } .apoio { order: 2; } .porta { order: 3; } .lista-check { order: 4; } .versiculo { order: 5; }
+      .hero h1 { order: 1; } .apoio, .com-deive { order: 2; } .porta { order: 3; } .lista-check { order: 4; } .versiculo { order: 5; }
       .hero-grade { gap: 14px; }
       .grade-niveis { grid-template-columns: 1fr; max-width: 420px; margin-left: auto; margin-right: auto; }
       .nivel { display: grid; grid-template-columns: 104px 1fr; column-gap: 14px; text-align: left; align-items: center; padding: 18px 14px; }
       .nivel .capa-nivel { grid-row: 1 / span 4; margin: 0; }
       .nivel .idade { justify-self: start; }
-      .porta-bonus { grid-template-columns: repeat(2, 1fr); gap: 30px 14px; padding: 38px 14px 24px; }
+      .porta-bonus { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 30px 14px; padding: 38px 14px 24px; }
+      .bonus .valor s { display: block; margin: 0; }
     }
     @media (max-width: 720px) {
       section { padding: 50px 0; }
@@ -377,6 +405,8 @@
       <div class="hero-texto">
         <h1>Seu filho gamer vai pedir para fazer atividade bíblica <span class="destaque"><span>+120 desafios no estilo do jogo que ele ama</span></span></h1>
         <p class="apoio">3 cadernos em PDF para imprimir · 6 a 12 anos · só 15 minutos por dia</p>
+        <!-- PREENCHER: trocar "Com" por "Criado com" ou "Recomendado por", conforme o papel do Deive -->
+        <a class="com-deive" href="#deive"><span class="avatar" style="background-image:url(assets/deive.webp)" aria-hidden="true"></span><span>Com <b>Deive Leonardo</b></span></a>
         <ul class="lista-check lista-desktop">
           <li>Histórias da Bíblia, versículo e oração em cada fase, sem briga e sem sermão</li>
           <li>O tempo de tela vira tempo com Deus: os pontos que ele ganha viram tempo de jogo no fim de semana</li>
@@ -489,6 +519,31 @@
         </div>
       </div>
       <p class="aviso-niveis">Os 3 cadernos vêm juntos em qualquer plano.</p>
+    </div>
+  </section>
+
+  <!-- DEIVE LEONARDO: quem está com a gente
+       PREENCHER com dados reais antes de publicar: foto (assets/deive.webp), @, seguidores, papel, os 3 números e a frase aprovada -->
+  <section class="autoridade" id="deive">
+    <div class="container autoridade-grade">
+      <div class="polaroid-area">
+        <div class="cartao-insta"><span class="avatar"><span style="background-image:url(assets/deive.webp)"></span></span><div><b>@[instagram]</b>[00] seguidores</div></div>
+        <figure class="polaroid"><span class="ima c4"></span>
+          <div class="foto">Foto do Deive<img src="assets/deive.webp" alt="Deive Leonardo" loading="lazy" data-reservado="Foto do Deive|assets/deive.webp"></div>
+          <figcaption>Deive Leonardo</figcaption>
+        </figure>
+      </div>
+      <div class="autoridade-texto">
+        <p class="rotulo-secao">QUEM ESTÁ COM A GENTE</p>
+        <h2>Deive Leonardo</h2>
+        <p class="sub">[Papel do Deive no projeto, em uma linha]</p>
+        <div class="grade-numeros">
+          <div class="numero"><span class="ima"></span><b>[00]</b><span>[número 1]</span></div>
+          <div class="numero"><span class="ima c2"></span><b>[00]</b><span>[número 2]</span></div>
+          <div class="numero"><span class="ima c3"></span><b>[00]</b><span>[número 3]</span></div>
+        </div>
+        <blockquote class="bilhete"><span class="ima c3"></span>“[Frase do Deive sobre o Obby da Fé, aprovada por ele.]”<cite>DEIVE LEONARDO</cite></blockquote>
+      </div>
     </div>
   </section>
 
@@ -663,7 +718,7 @@
     // Números com data-contar sobem de 0 até o valor quando ficam visíveis.
     (function () {
       if (!("IntersectionObserver" in window) || window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
-      var alvos = "section h2, section .sub, .numero, .quadro, .fase-aberta, .pagina, .print, .setas-varal, .nivel, .aviso-niveis, .bonus, .plano, .empurrao-combo, .tranquilo, .garantia-caixa, .perguntas details, .cta-final .botao, .cta-final .garantias";
+      var alvos = "section h2, section .sub, .numero, .quadro, .fase-aberta, .pagina, .print, .setas-varal, .nivel, .polaroid, .bilhete, .aviso-niveis, .bonus, .plano, .empurrao-combo, .tranquilo, .garantia-caixa, .perguntas details, .cta-final .botao, .cta-final .garantias";
       var obs = new IntersectionObserver(function (entradas) {
         entradas.forEach(function (e) {
           if (!e.isIntersecting) return;
