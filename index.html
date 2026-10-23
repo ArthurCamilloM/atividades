@@ -394,16 +394,16 @@
   </svg>
 
   <!-- BARRA DE OFERTA: fixa no topo, uma linha, leva aos planos -->
-  <a class="barra-oferta" href="#planos"><span class="timer" id="timer">15:00</span><span id="textoBarra"><svg class="ic" aria-hidden="true"><use href="#i-raio"/></svg> Preço de lançamento: a partir de R$ 19,90</span></a>
+  <a class="barra-oferta" href="#planos"><span class="timer" id="timer" hidden>15:00</span><span id="textoBarra"><svg class="ic" aria-hidden="true"><use href="#i-raio"/></svg> Lançamento só até 31/10: +500 páginas por R$ 27,90</span></a>
 
   <!-- POP-UP que abre quando o timer chega em 00:00 (uma vez por visitante) -->
   <div class="popup-fundo" id="popupFim" hidden>
     <div class="popup" role="dialog" aria-modal="true" aria-labelledby="popupTitulo" tabindex="-1">
       <button class="fechar-x" type="button" aria-label="Fechar" data-fechar>×</button>
       <div class="icone-popup"><svg class="ic" aria-hidden="true"><use href="#i-relogio"/></svg></div>
-      <h2 id="popupTitulo">Últimas unidades com preço de lançamento</h2>
-      <p>Compre agora, antes que as últimas unidades se esgotem. São <b>mais de 120 atividades bíblicas</b> do Obby da Fé a partir de <b>R$ 19,90</b>, em pagamento único.</p>
-      <a href="#planos" class="botao" data-fechar>Ver os planos</a>
+      <h2 id="popupTitulo">O preço de lançamento acaba em 31/10</h2>
+      <p>Depois disso, a Coleção Completa volta para <b>R$ 37,90</b>.</p>
+      <a href="#planos" class="botao" data-fechar>Quero as +500 páginas</a>
       <button class="agora-nao" type="button" data-fechar>Agora não</button>
     </div>
   </div>
@@ -412,14 +412,14 @@
   <header class="hero" id="topo">
     <div class="container hero-grade">
       <div class="hero-texto">
-        <h1>Seu filho gamer vai pedir para fazer atividade bíblica <span class="destaque"><span>+120 desafios no estilo do jogo que ele ama</span></span></h1>
-        <p class="apoio">3 cadernos em PDF para imprimir · 6 a 12 anos · só 15 minutos por dia</p>
+        <h1>Seu filho passa horas no jogo e não aguenta 5 minutos de Bíblia? <span class="destaque"><span>Então coloque a Bíblia dentro do jogo.</span></span></h1>
+        <p class="apoio">+500 páginas de fases, checkpoints e recompensas para imprimir. Ele faz a missão primeiro e joga depois. E é ele quem pede.</p>
         <a class="com-deive" href="#deive"><span class="avatar" style="background-image:url(assets/deive-insta.webp)" aria-hidden="true"></span><span>Com <b>Deive Leonardo</b></span></a>
         <ul class="lista-check lista-desktop">
-          <li>Histórias da Bíblia, versículo e oração em cada fase, sem briga e sem sermão</li>
-          <li>O tempo de tela vira tempo com Deus: os pontos que ele ganha viram tempo de jogo no fim de semana</li>
-          <li>Só 15 minutos por dia: é imprimir e aplicar, com tudo pronto</li>
-          <li><b>Mais de 120 atividades</b> em 3 cadernos por idade, com 21 histórias da Bíblia</li>
+          <li><b>"Primeiro a missão, depois o jogo"</b>: a regra que acaba com a briga pela tela</li>
+          <li>Os Pontos de Luz viram prêmio de verdade: noite da pizza, cinema em casa, tempo extra no fim de semana</li>
+          <li>Só 15 minutos por dia. Imprimiu, aplicou. Você não precisa planejar nada</li>
+          <li><b>3 cadernos por idade</b>: irmãos de 6 e de 11 anos usam ao mesmo tempo, cada um no seu nível</li>
         </ul>
         <p class="versiculo">“Ensina a criança no caminho em que deve andar, e, ainda quando for velho, não se desviará dele.”<cite>PROVÉRBIOS 22.6</cite></p>
       </div>
@@ -442,29 +442,29 @@
   <!-- NÚMEROS (sobem de 0 até o valor quando aparecem na tela) -->
   <section class="numeros" aria-label="A coleção em números">
     <div class="container grade-numeros">
-      <div class="numero"><span class="ima"></span><b>+<span data-contar="120">120</span></b><span>atividades</span></div>
+      <div class="numero"><span class="ima"></span><b>+<span data-contar="500">500</span></b><span>páginas para imprimir</span></div>
       <div class="numero"><span class="ima c2"></span><b><span data-contar="21">21</span></b><span>fases bíblicas</span></div>
       <div class="numero"><span class="ima c3"></span><b><span data-contar="3">3</span></b><span>cadernos por idade</span></div>
-      <div class="numero"><span class="ima c4"></span><b><span data-contar="6">6</span></b><span>bônus no combo</span></div>
+      <div class="numero"><span class="ima c4"></span><b><span data-contar="9">9</span></b><span>bônus na coleção</span></div>
     </div>
   </section>
 
   <!-- A SEMANA: o quadro de rotina que fica na geladeira -->
   <section class="semana">
     <div class="container">
-      <h2 class="centro">Uma fase por semana, presa na porta da geladeira</h2>
-      <p class="sub centro">Igual a um obby: a criança lê, joga e chega ao checkpoint. Os mascotes Léo e Bia guiam cada fase.</p>
+      <h2 class="centro">Igual a um obby: leia, jogue, chegue ao checkpoint</h2>
+      <p class="sub centro">Roteiro pronto para a semana. Imprimiu, aplicou. Uma fase por semana rende de 4 a 5 meses de conteúdo.</p>
       <div class="semana-grade">
         <div class="quadro">
           <span class="ima c3"></span>
           <h3>Rotina da semana · 15 minutos</h3>
-          <div class="dia"><span class="d">SEG</span><div><b>Leia a fase</b><span>Uma história da Bíblia e o versículo-chave.</span></div><svg class="ic estrela" aria-hidden="true"><use href="#i-estrela"/></svg></div>
-          <div class="dia"><span class="d">TER · QUA</span><div><b>Jogue as atividades</b><span>Labirintos, códigos, caça-palavras e quiz.</span></div><svg class="ic estrela" aria-hidden="true"><use href="#i-estrela"/></svg></div>
-          <div class="dia"><span class="d">QUI</span><div><b>Chegue ao checkpoint</b><span>O que aprendi, a missão na vida real e a oração.</span></div><svg class="ic estrela" aria-hidden="true"><use href="#i-estrela"/></svg></div>
-          <div class="dia"><span class="d">SÁB</span><div><b>Troque os Pontos de Luz</b><span>Primeiro a missão, depois o jogo.</span></div><svg class="ic estrela" aria-hidden="true"><use href="#i-estrela"/></svg></div>
+          <div class="dia"><span class="d">SEG</span><div><b>Leia a fase</b><span>Cada história é uma fase com começo, meio e chefão: Davi e Golias, Daniel e os leões.</span></div><svg class="ic estrela" aria-hidden="true"><use href="#i-estrela"/></svg></div>
+          <div class="dia"><span class="d">TER · QUA</span><div><b>Jogue as missões</b><span>Labirinto, código secreto, caça-palavras e desenho. Léo e Bia guiam o caminho.</span></div><svg class="ic estrela" aria-hidden="true"><use href="#i-estrela"/></svg></div>
+          <div class="dia"><span class="d">QUI</span><div><b>Chegue ao checkpoint</b><span>Revisão, oração e as estrelas pintadas no mapa da fase.</span></div><svg class="ic estrela" aria-hidden="true"><use href="#i-estrela"/></svg></div>
+          <div class="dia"><span class="d">SÁB</span><div><b>Gaste os Pontos de Luz</b><span>Primeiro a missão, depois o jogo: lanche favorito, joga comigo, até 1 hora a mais no sábado.</span></div><svg class="ic estrela" aria-hidden="true"><use href="#i-estrela"/></svg></div>
           <ul class="extra">
-            <li><svg class="ic" aria-hidden="true"><use href="#i-irmaos"/></svg>Irmãos de idades diferentes, cada um no seu caderno.</li>
-            <li><svg class="ic" aria-hidden="true"><use href="#i-escudo"/></svg>Conversas em família sobre chat, trapaça e desconhecidos.</li>
+            <li><svg class="ic" aria-hidden="true"><use href="#i-irmaos"/></svg>Acaba a briga pela tela: os Pontos de Luz viram tempo de jogo, e ele assina o acordo junto com você.</li>
+            <li><svg class="ic" aria-hidden="true"><use href="#i-escudo"/></svg>Bíblia e proteção on-line: chat gentil, nada de dados pessoais, nada de compra sem autorização.</li>
           </ul>
         </div>
         <div class="fase-aberta">
@@ -478,8 +478,8 @@
   <!-- VEJA POR DENTRO: varal de páginas (rolagem manual) -->
   <section class="preview centro">
     <div class="container">
-      <h2>Veja as páginas que seu filho vai jogar</h2>
-      <p class="sub">Páginas reais da coleção. Arraste para o lado.</p>
+      <h2>Veja por dentro: +500 páginas prontas para imprimir</h2>
+      <p class="sub">Labirinto, código secreto, caça-palavras, desenho, quiz e cartões. Atividade que parece jogo, porque foi feita para isso.</p>
     </div>
     <div class="varal">
       <div class="trilho" id="trilhoPaginas" tabindex="0" aria-label="Páginas da coleção">
@@ -487,12 +487,12 @@
         <div class="pagina"><span class="ima c2"></span><img src="assets/pagina-escolha-heroi.webp" alt="Página Escolha seu Herói" loading="lazy" width="700" height="991" data-reservado="Escolha seu herói|assets/pagina-escolha-heroi.webp"></div>
         <div class="pagina"><span class="ima c3"></span><img src="assets/pagina-abraao.webp" alt="Página da Fase 3, Abraão e as estrelas" loading="lazy" width="700" height="991" data-reservado="Fase Abraão|assets/pagina-abraao.webp"></div>
         <div class="pagina"><span class="ima c4"></span><img src="assets/pagina-colorir-davi.webp" alt="Página para colorir, Davi contra o gigante" loading="lazy" width="700" height="991" data-reservado="Colorir Davi|assets/pagina-colorir-davi.webp"></div>
-        <div class="pagina"><span class="ima c2"></span><img src="assets/pagina-mapa-progresso.webp" alt="Página do bônus Mapa de Progresso da Fé" loading="lazy" width="700" height="991" data-reservado="pagina-mapa-progresso|assets/pagina-mapa-progresso.webp"><span class="selo-bonus">Bônus do Combo</span></div>
-        <div class="pagina"><span class="ima c3"></span><img src="assets/pagina-loja-cartoes.webp" alt="Página do bônus Cartões de Recompensa, loja de prêmios" loading="lazy" width="700" height="991" data-reservado="pagina-loja-cartoes|assets/pagina-loja-cartoes.webp"><span class="selo-bonus">Bônus do Combo</span></div>
-        <div class="pagina"><span class="ima c4"></span><img src="assets/pagina-quiz.webp" alt="Página do bônus 100 Perguntas da Bíblia, como jogar o quiz" loading="lazy" width="700" height="991" data-reservado="pagina-quiz|assets/pagina-quiz.webp"><span class="selo-bonus">Bônus do Combo</span></div>
-        <div class="pagina"><span class="ima"></span><img src="assets/pagina-versiculos.webp" alt="Página do bônus Versículos Visuais, cartões ilustrados" loading="lazy" width="700" height="991" data-reservado="pagina-versiculos|assets/pagina-versiculos.webp"><span class="selo-bonus">Bônus do Combo</span></div>
-        <div class="pagina"><span class="ima c2"></span><img src="assets/pagina-frases-prontas.webp" alt="Página do bônus Guia Rápido para os Pais, frases prontas" loading="lazy" width="700" height="991" data-reservado="pagina-frases-prontas|assets/pagina-frases-prontas.webp"><span class="selo-bonus">Bônus do Combo</span></div>
-        <div class="pagina"><span class="ima c3"></span><img src="assets/pagina-desafio-30-dias.webp" alt="Página do bônus Desafio 30 Dias do Jogador da Fé, calendário" loading="lazy" width="700" height="991" data-reservado="pagina-desafio-30-dias|assets/pagina-desafio-30-dias.webp"><span class="selo-bonus">Bônus do Combo</span></div>
+        <div class="pagina"><span class="ima c2"></span><img src="assets/pagina-mapa-progresso.webp" alt="Página do bônus Mapa de Progresso da Fé" loading="lazy" width="700" height="991" data-reservado="pagina-mapa-progresso|assets/pagina-mapa-progresso.webp"><span class="selo-bonus">Só na Coleção Completa</span></div>
+        <div class="pagina"><span class="ima c3"></span><img src="assets/pagina-loja-cartoes.webp" alt="Página do bônus Cartões de Recompensa, loja de prêmios" loading="lazy" width="700" height="991" data-reservado="pagina-loja-cartoes|assets/pagina-loja-cartoes.webp"><span class="selo-bonus">Só na Coleção Completa</span></div>
+        <div class="pagina"><span class="ima c4"></span><img src="assets/pagina-quiz.webp" alt="Página do bônus 100 Perguntas da Bíblia, como jogar o quiz" loading="lazy" width="700" height="991" data-reservado="pagina-quiz|assets/pagina-quiz.webp"><span class="selo-bonus">Só na Coleção Completa</span></div>
+        <div class="pagina"><span class="ima"></span><img src="assets/pagina-versiculos.webp" alt="Página do bônus Versículos Visuais, cartões ilustrados" loading="lazy" width="700" height="991" data-reservado="pagina-versiculos|assets/pagina-versiculos.webp"><span class="selo-bonus">Só na Coleção Completa</span></div>
+        <div class="pagina"><span class="ima c2"></span><img src="assets/pagina-frases-prontas.webp" alt="Página do bônus Guia Rápido para os Pais, frases prontas" loading="lazy" width="700" height="991" data-reservado="pagina-frases-prontas|assets/pagina-frases-prontas.webp"><span class="selo-bonus">Só na Coleção Completa</span></div>
+        <div class="pagina"><span class="ima c3"></span><img src="assets/pagina-desafio-30-dias.webp" alt="Página do bônus Desafio 30 Dias do Jogador da Fé, calendário" loading="lazy" width="700" height="991" data-reservado="pagina-desafio-30-dias|assets/pagina-desafio-30-dias.webp"><span class="selo-bonus">Só na Coleção Completa</span></div>
       </div>
       <div class="setas-varal">
         <button type="button" data-trilho="trilhoPaginas" data-dir="-1" aria-label="Página anterior"><svg class="ic" aria-hidden="true"><use href="#i-seta-esq"/></svg></button>
@@ -504,26 +504,26 @@
   <!-- NÍVEIS: um caderno para cada idade -->
   <section class="niveis centro">
     <div class="container">
-      <h2>Um caderno para cada idade</h2>
+      <h2>+500 páginas. Tudo pronto para imprimir.</h2>
       <p class="sub">Cada caderno tem 7 fases e dura cerca de 7 semanas.</p>
       <div class="grade-niveis">
         <div class="nivel"><span class="ima"></span>
           <div class="capa-nivel"><img src="assets/capa-nivel1.webp" alt="Capa do Nível 1, Heróis da Bíblia" loading="lazy" data-reservado="Capa do Nível 1|assets/capa-nivel1.webp"></div>
           <span class="idade">6 a 8 anos · 1º e 2º ano</span>
           <h3>Heróis da Bíblia</h3>
-          <p>As grandes histórias do Antigo Testamento, com leitura curta, contagem, labirintos e desenho.</p>
+          <p>Da Criação a Jonas. Leitura curta, labirinto, contagem e desenho. Funciona até para quem ainda não lê bem.</p>
         </div>
         <div class="nivel"><span class="ima c3"></span>
           <div class="capa-nivel"><img src="assets/capa-nivel2.webp" alt="Capa do Nível 2, Missões com Jesus" loading="lazy" data-reservado="Capa do Nível 2|assets/capa-nivel2.webp"></div>
           <span class="idade">8 a 10 anos · 3º e 4º ano</span>
           <h3>Missões com Jesus</h3>
-          <p>A vida e os ensinos de Jesus, com desafios dos números e situações reais de jogo on-line.</p>
+          <p>Do nascimento de Jesus a Zaqueu na árvore. A tempestade, os pães e peixes, a ovelha perdida.</p>
         </div>
         <div class="nivel"><span class="ima c4"></span>
           <div class="capa-nivel"><img src="assets/capa-nivel3.webp" alt="Capa do Nível 3, Desafios do Discípulo" loading="lazy" data-reservado="Capa do Nível 3|assets/capa-nivel3.webp"></div>
           <span class="idade">10 a 12 anos · 5º e 6º ano</span>
           <h3>Desafios do Discípulo</h3>
-          <p>Caráter e vida cristã para pré-adolescentes, com as "regras do servidor" da casa para a família assinar.</p>
+          <p>De José do Egito à Armadura de Deus. Caráter, coragem e o que fazer quando ninguém está olhando, inclusive no chat do jogo.</p>
         </div>
       </div>
       <p class="aviso-niveis">Os 3 cadernos vêm juntos em qualquer plano.</p>
@@ -557,7 +557,7 @@
   <!-- PROVA SOCIAL -->
   <section class="prova centro" id="depoimentos">
     <div class="container">
-      <h2>Mensagens que recebemos</h2>
+      <h2>Olha o que acontece quando a Bíblia vira fase</h2>
       <p class="sub">Prints de conversas com clientes.</p>
     </div>
     <div class="varal">
@@ -580,16 +580,16 @@
   <!-- BÔNUS DO COMBO -->
   <section class="bonus-sec centro">
     <div class="container">
-      <h2>No Combo, 6 bônus que valem R$ 70,40 saem de graça</h2>
-      <p class="sub">Para ampliar a prática e manter a criança animada até o fim da coleção.</p>
+      <h2>E não para por aí: 9 bônus na Coleção Completa</h2>
+      <p class="sub">Juntos valem R$ 127,10. Na Coleção Completa, saem de graça.</p>
       <div class="porta-bonus">
         <span class="puxador" aria-hidden="true"></span>
-        <div class="bonus"><span class="ima"></span><img src="assets/bonus1.webp" alt="Capa do bônus Mapa de Progresso da Fé" loading="lazy" data-reservado="Capa bônus 1|assets/bonus1.webp"><div class="rotulo"><h3>Mapa de Progresso da Fé</h3><p>Os 3 mundos e as 21 fases num mapa para o quarto, com 21 distintivos para colorir.</p><span class="valor"><s>R$ 9,90</s><span class="nw">grátis no Combo</span></span></div></div>
-        <div class="bonus"><span class="ima c2"></span><img src="assets/bonus2.webp" alt="Capa do bônus Cartões de Recompensa" loading="lazy" data-reservado="Capa bônus 2|assets/bonus2.webp"><div class="rotulo"><h3>Cartões de Recompensa</h3><p>32 cartões de prêmio e conquista, do comum ao lendário, e um banco de pontos.</p><span class="valor"><s>R$ 9,90</s><span class="nw">grátis no Combo</span></span></div></div>
-        <div class="bonus"><span class="ima c3"></span><img src="assets/bonus3.webp" alt="Capa do bônus Guia Rápido para os Pais" loading="lazy" data-reservado="Capa bônus 3|assets/bonus3.webp"><div class="rotulo"><h3>Guia Rápido para os Pais</h3><p>Rotina de 15 minutos, frases prontas para birras de tela e segurança on-line.</p><span class="valor"><s>R$ 12,90</s><span class="nw">grátis no Combo</span></span></div></div>
-        <div class="bonus"><span class="ima c4"></span><img src="assets/bonus4.webp" alt="Capa do bônus 100 Perguntas da Bíblia" loading="lazy" data-reservado="Capa bônus 4|assets/bonus4.webp"><div class="rotulo"><h3>100 Perguntas da Bíblia</h3><p>O quiz da família em 3 níveis, com 4 modos de jogo e gabarito.</p><span class="valor"><s>R$ 14,90</s><span class="nw">grátis no Combo</span></span></div></div>
-        <div class="bonus"><span class="ima"></span><img src="assets/bonus5.webp" alt="Capa do bônus Versículos Visuais" loading="lazy" data-reservado="Capa bônus 5|assets/bonus5.webp"><div class="rotulo"><h3>Versículos Visuais</h3><p>24 cartões ilustrados para recortar e colecionar, cada um com uma missão.</p><span class="valor"><s>R$ 9,90</s><span class="nw">grátis no Combo</span></span></div></div>
-        <div class="bonus"><span class="ima c2"></span><img src="assets/bonus6.webp" alt="Capa do bônus Desafio 30 Dias do Jogador da Fé" loading="lazy" data-reservado="Capa bônus 6|assets/bonus6.webp"><div class="rotulo"><h3>Desafio 30 Dias do Jogador da Fé</h3><p>Uma leitura e uma missão por dia durante um mês.</p><span class="valor"><s>R$ 12,90</s><span class="nw">grátis no Combo</span></span></div></div>
+        <div class="bonus"><span class="ima"></span><img src="assets/bonus1.webp" alt="Capa do bônus Mapa de Progresso da Fé" loading="lazy" data-reservado="Capa bônus 1|assets/bonus1.webp"><div class="rotulo"><h3>Mapa de Progresso da Fé</h3><p>Os 3 mundos e as 21 fases num mapa para o quarto. Ver o caminho faz ele querer a próxima fase.</p><span class="valor"><s>R$ 9,90</s><span class="nw">sai de graça</span></span></div></div>
+        <div class="bonus"><span class="ima c2"></span><img src="assets/bonus2.webp" alt="Capa do bônus Cartões de Recompensa" loading="lazy" data-reservado="Capa bônus 2|assets/bonus2.webp"><div class="rotulo"><h3>Loja de Recompensas: 32 cartões</h3><p>Do comum ao lendário: noite da pizza, cinema em casa, joga comigo. Ele junta pontos sem você mandar.</p><span class="valor"><s>R$ 9,90</s><span class="nw">sai de graça</span></span></div></div>
+        <div class="bonus"><span class="ima c3"></span><img src="assets/bonus3.webp" alt="Capa do bônus Guia Rápido para os Pais" loading="lazy" data-reservado="Capa bônus 3|assets/bonus3.webp"><div class="rotulo"><h3>Guia Rápido para os Pais</h3><p>Rotina pronta, Acordo de Tempo de Tela para assinar, frases para o "só mais 5 minutinhos" e alertas on-line.</p><span class="valor"><s>R$ 12,90</s><span class="nw">sai de graça</span></span></div></div>
+        <div class="bonus"><span class="ima c4"></span><img src="assets/bonus4.webp" alt="Capa do bônus 100 Perguntas da Bíblia" loading="lazy" data-reservado="Capa bônus 4|assets/bonus4.webp"><div class="rotulo"><h3>100 Perguntas da Bíblia</h3><p>Quiz em 3 níveis e 4 modos: Família, Solo, Speedrun e Torneio. Para o jantar, o carro e a igreja.</p><span class="valor"><s>R$ 14,90</s><span class="nw">sai de graça</span></span></div></div>
+        <div class="bonus"><span class="ima"></span><img src="assets/bonus5.webp" alt="Capa do bônus Versículos Visuais" loading="lazy" data-reservado="Capa bônus 5|assets/bonus5.webp"><div class="rotulo"><h3>Versículos Visuais: 24 cartões</h3><p>Cada cartão com uma missão. A regra mais simples da casa: falou o versículo, liberou o jogo.</p><span class="valor"><s>R$ 9,90</s><span class="nw">sai de graça</span></span></div></div>
+        <div class="bonus"><span class="ima c2"></span><img src="assets/bonus6.webp" alt="Capa do bônus Desafio 30 Dias do Jogador da Fé" loading="lazy" data-reservado="Capa bônus 6|assets/bonus6.webp"><div class="rotulo"><h3>Desafio 30 Dias do Jogador da Fé</h3><p>Uma leitura e uma missão por dia. Sem game over: perdeu um dia, continua de onde parou. Certificado no dia 30.</p><span class="valor"><s>R$ 12,90</s><span class="nw">sai de graça</span></span></div></div>
       </div>
     </div>
   </section>
@@ -597,46 +597,48 @@
   <!-- PLANOS -->
   <section class="planos centro" id="planos">
     <div class="container">
-      <h2>Escolha o seu plano</h2>
-      <p class="sub">Pagamento único. O PDF chega no seu e-mail depois da confirmação.</p>
+      <h2>Faça a conta: menos de 6 centavos por página</h2>
+      <p class="sub">Uma única skin de jogo custa mais que essa coleção inteira, e some quando ele enjoar. Aqui são +500 páginas que você imprime quantas vezes quiser para a sua família.</p>
       <div class="grade-planos">
         <div class="plano basico">
           <div class="img-plano"><img src="assets/nivel1-mockup.webp" alt="Cadernos e páginas do Plano Básico" loading="lazy" data-reservado="Imagem do plano básico|assets/nivel1-mockup.webp"></div>
           <h3>Plano Básico</h3>
           <p class="resumo">Os 3 cadernos para imprimir</p>
           <ul class="itens">
-            <li><b>Mais de 120 atividades bíblicas</b></li>
-            <li>3 cadernos: Níveis 1, 2 e 3 (87 páginas)</li>
-            <li>21 fases para crianças de 6 a 12 anos</li>
+            <li><b>3 cadernos por idade</b></li>
+            <li>21 fases</li>
             <li>Pontos de Luz, distintivos e certificado</li>
             <li>Gabarito e Guia da Coleção</li>
+            <li>PDF pronto para imprimir</li>
+            <li>Acesso vitalício</li>
           </ul>
           <div class="preco-de">de R$ 27,90 por</div>
           <div class="preco">R$ 19,90</div>
           <div class="preco-tipo">pagamento único</div>
           <!-- Checkout Wiapy do Plano Básico (R$ 19,90) -->
-          <a href="https://pay.wiapy.com/wQqwLQW5Hn0" class="botao largo">Quero o Plano Básico</a>
+          <a href="https://pay.wiapy.com/wQqwLQW5Hn0" class="botao largo">Quero só os cadernos</a>
         </div>
 
         <!-- Empurrão para o combo: só aparece no celular, onde os planos ficam um embaixo do outro -->
         <div class="empurrao-combo">
           <h3>Ainda dá tempo de levar a <span>melhor opção!</span></h3>
-          <p>Por só <b>R$ 8 a mais</b>, você leva os <b>6 bônus</b> que valem R$ 70,40 no Combo Completo.</p>
+          <p>Só <b>R$ 8 a mais</b> que o Básico, e você leva a loja de prêmios, o acordo de tela e <b>mais 7 bônus</b>.</p>
           <div class="setas" aria-hidden="true"><span></span><span></span><span></span></div>
         </div>
 
         <div class="plano completo">
           <span class="faixa-topo">RECOMENDADO</span>
           <div class="img-plano"><img src="assets/colecao-3-niveis.webp" alt="Os 3 cadernos da coleção Obby da Fé" loading="lazy" data-reservado="Imagem do combo completo|assets/colecao-3-niveis.webp"></div>
-          <h3>Combo Completo</h3>
-          <p class="resumo">Os 3 cadernos + 6 bônus · acesso vitalício</p>
+          <h3>Coleção Completa</h3>
+          <p class="resumo">+500 páginas: os 3 cadernos e os 9 bônus</p>
           <ul class="itens">
-            <li><b>Mais de 270 atividades e desafios</b></li>
+            <li><b>+500 páginas para imprimir</b></li>
             <li>Tudo do Plano Básico</li>
-            <li>6 bônus que valem R$ 70,40</li>
+            <li>9 bônus que valem R$ 127,10</li>
+            <li>Acesso vitalício</li>
           </ul>
           <details class="ver-tudo">
-            <summary>Ver tudo que vem no Combo</summary>
+            <summary>Ver tudo que vem na coleção</summary>
             <ul class="itens">
               <li>3 cadernos: Níveis 1, 2 e 3 (87 páginas)</li>
               <li>21 fases, Pontos de Luz, distintivos e certificado</li>
@@ -647,13 +649,16 @@
               <li>100 Perguntas da Bíblia</li>
               <li>Versículos Visuais</li>
               <li>Desafio 30 Dias do Jogador da Fé</li>
+              <li>Livro de Colorir da Bíblia</li>
+              <li>Passatempos Bíblicos</li>
+              <li>Devocional do Jogador</li>
             </ul>
           </details>
-          <div class="preco-de">valor total R$ 98,30 por</div>
+          <div class="preco-de">valor total R$ 155,00<br>de R$ 37,90 por</div>
           <div class="preco">R$ 27,90</div>
           <div class="preco-tipo">pagamento único</div>
           <!-- Checkout Wiapy do Combo Completo (R$ 27,90) -->
-          <a href="https://pay.wiapy.com/F_hVchrjozRG" class="botao largo">Quero o Combo Completo</a>
+          <a href="https://pay.wiapy.com/F_hVchrjozRG" class="botao largo">Quero a coleção completa</a>
         </div>
       </div>
       <ul class="tranquilo">
@@ -671,8 +676,8 @@
       <div class="garantia-caixa">
         <div class="selo-7"><div><b>7</b><span>DIAS</span></div></div>
         <div>
-          <h2>Garantia de 7 dias: risco zero para você</h2>
-          <p>Você pode acessar o material e avaliar com calma. Se entender que ele não atende ao que precisa, poderá solicitar o reembolso dentro do prazo da garantia, conforme as regras da plataforma de pagamento.</p>
+          <h2>Garantia de 7 dias. O risco é todo meu.</h2>
+          <p>Baixe, imprima e aplique a primeira fase com seu filho. Se em 7 dias você achar que não é para a sua família, é só pedir e você recebe 100% do valor de volta, sem perguntas.</p>
         </div>
       </div>
     </div>
@@ -683,14 +688,14 @@
     <div class="container">
       <h2>Perguntas frequentes</h2>
       <div class="perguntas">
-        <details><summary>Para qual idade a coleção é indicada?</summary><p>Para crianças de 6 a 12 anos, em 3 níveis: Nível 1 (6 a 8 anos), Nível 2 (8 a 10 anos) e Nível 3 (10 a 12 anos). Irmãos de idades diferentes podem usar cada um o seu caderno.</p></details>
-        <details><summary>O material é físico ou digital?</summary><p>É 100% digital, entregue em PDF. Nenhum produto físico é enviado pelos Correios.</p></details>
-        <details><summary>Posso imprimir as atividades?</summary><p>Sim. Você imprime as páginas para usar em casa com a sua família, quantas vezes quiser.</p></details>
-        <details><summary>Quanto tempo por dia leva?</summary><p>Cerca de 15 minutos. O ritmo sugerido é uma fase por semana: um dia para a história, dois para as atividades e um para o checkpoint.</p></details>
-        <details><summary>Serve para qualquer igreja?</summary><p>Sim. A coleção é interdenominacional: os Dez Mandamentos não são numerados e os versículos usam a tradução Almeida ou paráfrases marcadas como "adaptado".</p></details>
-        <details><summary>Tem ligação oficial com algum jogo?</summary><p>Não. O visual de blocos é original e não há marcas, logos ou moedas de nenhum jogo. A coleção apenas usa a linguagem dos jogos que as crianças já amam.</p></details>
-        <details><summary>O que vem no Combo Completo?</summary><p>Os 3 cadernos da coleção mais 6 bônus: Mapa de Progresso da Fé, Cartões de Recompensa, Guia Rápido para os Pais, 100 Perguntas da Bíblia, Versículos Visuais e Desafio 30 Dias do Jogador da Fé, com acesso vitalício.</p></details>
-        <details><summary>Como recebo os arquivos?</summary><p>Logo após a confirmação do pagamento, você recebe no seu e-mail o link para baixar todos os PDFs.</p></details>
+        <details><summary>Para qual idade a coleção é indicada?</summary><p>De 6 a 12 anos, em 3 cadernos por idade. Tem filhos de idades diferentes? Cada um usa o caderno do seu nível. A conversa em família é a mesma.</p></details>
+        <details><summary>Meu filho ainda não lê bem. Serve?</summary><p>Serve. Comece pelo Nível 1 e leia junto. Labirinto, contagem e desenho não exigem leitura.</p></details>
+        <details><summary>Posso imprimir as atividades?</summary><p>Pode, quantas vezes quiser, para uso da sua família. Preto e branco também funciona.</p></details>
+        <details><summary>Quanto tempo por dia leva?</summary><p>Só 15 minutos. E não precisa imprimir as +500 páginas de uma vez: imprima só a fase da semana. Uma fase por semana rende de 4 a 5 meses de conteúdo.</p></details>
+        <details><summary>Serve para qualquer igreja?</summary><p>Sim. É baseado na Bíblia e serve para famílias católicas e evangélicas.</p></details>
+        <details><summary>Tem ligação oficial com algum jogo?</summary><p>Não. O visual de blocos é original. Não usamos marca, logo ou moeda de nenhum jogo. Só falamos a língua que seu filho já entende.</p></details>
+        <details><summary>Preciso saber muito de Bíblia?</summary><p>Não. Cada fase traz a história resumida, a referência e o gabarito.</p></details>
+        <details><summary>Como recebo os arquivos?</summary><p>Assim que o pagamento é aprovado, o link chega no seu e-mail. No Pix, é na hora.</p></details>
       </div>
     </div>
   </section>
@@ -700,9 +705,9 @@
     <div class="container">
       <svg class="ic icone-cta" aria-hidden="true"><use href="#i-medalha"/></svg>
       <h2>Dê ao seu filho o próximo passo na fé</h2>
-      <p class="sub">Transforme o tempo de jogo em tempo com Deus: os 3 cadernos e os 6 bônus por R$ 27,90.</p>
-      <a href="https://pay.wiapy.com/F_hVchrjozRG" class="botao">Quero o Combo por R$ 27,90 <svg class="ic" aria-hidden="true"><use href="#i-seta"/></svg></a>
-      <p class="garantias">Pagamento único · PDF no seu e-mail · Garantia de 7 dias</p>
+      <p class="sub">Daqui a 5 meses, seu filho vai ter passado muitas horas no jogo. Isso você não controla. O que você controla é se, nesses mesmos 5 meses, ele vai ter jogado 21 fases da Bíblia, decorado 24 versículos e zerado um desafio de 30 dias com Deus.</p>
+      <a href="https://pay.wiapy.com/F_hVchrjozRG" class="botao">Quero as +500 páginas <svg class="ic" aria-hidden="true"><use href="#i-seta"/></svg></a>
+      <p class="garantias">A regra começa hoje: primeiro a missão, depois o jogo. Imprima a Fase 1 agora e veja a reação dele amanhã. Se não gostar, você tem 7 dias para pedir o dinheiro de volta.</p>
     </div>
   </section>
 
@@ -713,7 +718,7 @@
 
   <!-- BARRA DE COMPRA FIXA (celular): aparece quando a porta sai da tela e some nos planos -->
   <div class="barra-compra" id="barraCompra" aria-hidden="true">
-    <div>Combo: 3 cadernos + 6 bônus<b>R$ 27,90</b></div>
+    <div>Coleção Completa: +500 páginas<b>R$ 27,90</b></div>
     <a href="https://pay.wiapy.com/F_hVchrjozRG" class="botao" tabindex="-1">Comprar</a>
   </div>
 
@@ -782,8 +787,6 @@
       document.addEventListener("keydown", function (e) { if (e.key === "Escape") fecharPopup(); });
 
       function acabou() {
-        el.hidden = true;
-        document.getElementById("textoBarra").innerHTML = '<svg class="ic" aria-hidden="true"><use href="#i-chama"/></svg> Últimas unidades com preço de lançamento';
         var visto = false;
         try { visto = localStorage.getItem(CHAVE_POPUP) === "1"; } catch (e) {}
         if (visto) return;
