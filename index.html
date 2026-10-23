@@ -59,11 +59,11 @@
       display: inline-flex; align-items: center; justify-content: center; gap: 8px; text-align: center; min-height: 54px;
       background: var(--verde); color: #fff; text-decoration: none;
       font-weight: 900; font-size: 1.06rem; letter-spacing: .02em; padding: 16px 30px; border-radius: 14px;
-      box-shadow: 0 5px 0 var(--verde-escuro), 0 12px 22px rgba(15,95,45,.25);
+      box-shadow: inset 0 -5px 0 var(--verde-escuro), 0 10px 22px rgba(15,95,45,.28);
       transition: transform .15s ease, box-shadow .15s ease;
     }
-    .botao:hover { transform: translateY(-2px); box-shadow: 0 7px 0 var(--verde-escuro), 0 16px 26px rgba(15,95,45,.3); }
-    .botao:active { transform: translateY(4px); box-shadow: 0 1px 0 var(--verde-escuro), 0 6px 12px rgba(15,95,45,.25); }
+    .botao:hover { transform: translateY(-2px); box-shadow: inset 0 -5px 0 var(--verde-escuro), 0 14px 26px rgba(15,95,45,.32); }
+    .botao:active { transform: translateY(2px); box-shadow: inset 0 -2px 0 var(--verde-escuro), 0 5px 12px rgba(15,95,45,.25); }
     .botao.largo { width: 100%; }
     .botao .ic { width: 1.1em; height: 1.1em; }
 
@@ -112,7 +112,9 @@
     .folha.f3 { left: 10%; top: 46%; width: 31%; --g: 3deg; }
     /* nota de Pontos de Luz, escrita à mão pela família */
     .nota-pontos { position: absolute; right: 8%; top: 45%; width: 40%; background: var(--sol-claro); border-radius: 6px; padding: 10px 10px 12px; rotate: -4deg; box-shadow: var(--sombra-papel); color: #4a3700; font-weight: 800; font-size: clamp(.7rem, 2.6vw, .9rem); line-height: 1.3; }
-    .nota-pontos b { display: block; font-family: "Fraunces", Georgia, serif; color: var(--roxo-noite); font-size: 1.15em; margin: 2px 0; letter-spacing: .08em; }
+    .nota-pontos .estrelas { display: flex; gap: 2px; margin: 4px 0; color: #B07A00; }
+    .nota-pontos .estrelas .ic { width: 1.25em; height: 1.25em; stroke-width: 1.8; }
+    .nota-pontos .estrelas .cheia { fill: currentColor; }
     /* etiqueta de preço presa na borda de baixo da porta */
     .etiqueta { position: absolute; left: 50%; bottom: -46px; transform: translateX(-50%); width: min(92%, 420px); background: var(--papel); border-radius: 18px; padding: 12px 14px 14px; text-align: center; box-shadow: 0 14px 30px rgba(37,29,69,.22); }
     .etiqueta .preco-linha { font-weight: 800; font-size: .95rem; color: var(--texto-suave); margin-bottom: 8px; }
@@ -162,12 +164,12 @@
     .trilho > * { flex: 0 0 auto; scroll-snap-align: center; }
     .pagina { position: relative; width: min(74vw, 320px); background: var(--papel); padding: 6px; border-radius: 6px; box-shadow: var(--sombra-papel); }
     .pagina:nth-child(odd) { rotate: -1.2deg; } .pagina:nth-child(even) { rotate: 1.2deg; }
-    .pagina img { width: 100%; aspect-ratio: 700 / 991; object-fit: cover; border-radius: 3px; }
+    .pagina img { width: 100%; height: auto; aspect-ratio: 700 / 991; object-fit: contain; border-radius: 3px; }
     .setas-varal { display: flex; justify-content: center; gap: 12px; }
     .setas-varal button { width: 48px; height: 48px; border-radius: 12px; border: 2px solid var(--lilas-borda); background: var(--papel); color: var(--roxo); cursor: pointer; display: grid; place-items: center; }
     .setas-varal button:hover { border-color: var(--roxo); }
-    .print { position: relative; width: min(72vw, 300px); aspect-ratio: 2 / 3; border-radius: 10px; overflow: hidden; background: #EFE7DE; box-shadow: var(--sombra-papel); }
-    .print img { width: 100%; height: 100%; object-fit: contain; }
+    .print { position: relative; width: min(72vw, 300px); aspect-ratio: 2 / 3; border-radius: 10px; background: #EFE7DE; box-shadow: var(--sombra-papel); }
+    .print img { width: 100%; height: 100%; object-fit: contain; border-radius: 10px; }
 
     /* ================= NÍVEIS (3 cadernos presos na porta) ================= */
     .grade-niveis { display: grid; grid-template-columns: repeat(3, 1fr); gap: 22px; margin-top: 34px; }
@@ -180,13 +182,18 @@
     .aviso-niveis { margin-top: 22px; font-weight: 800; color: var(--roxo); }
 
     /* ================= BÔNUS ================= */
+    /* a porta de baixo da geladeira: as 6 capas dos bônus presas por ímãs, cada uma com sua etiqueta de papel */
     .bonus-sec { background: var(--lilas); }
-    .grade-bonus { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; margin-top: 30px; }
-    .bonus { background: var(--papel); border-radius: 14px; padding: 14px; box-shadow: var(--sombra-papel); text-align: left; display: grid; grid-template-columns: 96px 1fr; gap: 14px; align-items: center; }
-    .bonus img { width: 100%; height: auto; }
-    .bonus h3 { font-size: 1.02rem; color: var(--roxo-escuro); margin-bottom: 4px; }
-    .bonus p { font-size: .88rem; color: var(--texto-suave); margin-bottom: 6px; }
+    .porta-bonus { position: relative; margin-top: 30px; border-radius: 26px; padding: 40px 22px 30px; background: linear-gradient(160deg, #7457E2, var(--roxo) 55%, #4E35B3); box-shadow: inset -12px 0 0 rgba(0,0,0,.07), inset 0 2px 0 rgba(255,255,255,.18), 0 18px 40px rgba(62,42,147,.28); display: grid; grid-template-columns: repeat(3, 1fr); gap: 34px 22px; }
+    .porta-bonus .puxador { top: 18px; right: auto; left: 50%; width: 30%; min-width: 0; height: 9px; transform: translateX(-50%); }
+    .bonus { position: relative; text-align: left; }
+    .bonus:nth-child(3n+1) { rotate: -2deg; } .bonus:nth-child(3n+2) { rotate: 1.5deg; } .bonus:nth-child(3n) { rotate: -1deg; }
+    .bonus img { width: 72%; height: auto; margin: 0 auto; filter: drop-shadow(0 10px 14px rgba(0,0,0,.3)); }
+    .bonus .rotulo { margin-top: -10px; background: var(--papel); border-radius: 6px; padding: 10px 12px 12px; box-shadow: var(--sombra-papel); }
+    .bonus h3 { font-size: 1rem; color: var(--roxo-escuro); margin-bottom: 4px; }
+    .bonus p { font-size: .86rem; color: var(--texto-suave); margin-bottom: 6px; line-height: 1.4; }
     .bonus .valor { font-size: .88rem; font-weight: 800; color: var(--roxo); }
+    .bonus .valor .nw { white-space: nowrap; }
     .bonus .valor s { color: var(--texto-suave); font-weight: 700; margin-right: 6px; }
 
     /* ================= PLANOS ================= */
@@ -203,8 +210,9 @@
     .itens { list-style: none; text-align: left; margin-bottom: 18px; }
     .itens li { position: relative; padding: 8px 0 8px 26px; border-bottom: 1px solid var(--lilas-borda); font-size: .95rem; }
     .plano.completo .itens li { border-color: rgba(255,255,255,.14); }
-    .itens li::before { content: "✓"; position: absolute; left: 2px; top: 8px; color: var(--verde); font-weight: 900; }
-    .plano.completo .itens li::before { color: var(--sol-texto); }
+    /* check desenhado (SVG como máscara), na cor do plano */
+    .itens li::before { content: ""; position: absolute; left: 0; top: 11px; width: 16px; height: 16px; background: var(--verde); -webkit-mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='3.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='m5 12 5 5 9-10'/%3E%3C/svg%3E") center / contain no-repeat; mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='3.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='m5 12 5 5 9-10'/%3E%3C/svg%3E") center / contain no-repeat; }
+    .plano.completo .itens li::before { background: var(--sol-texto); }
     .ver-tudo { text-align: left; margin-bottom: 18px; border-top: 1px solid rgba(255,255,255,.22); border-bottom: 1px solid rgba(255,255,255,.22); }
     .ver-tudo summary { list-style: none; cursor: pointer; padding: 12px 2px; font-weight: 800; display: flex; justify-content: space-between; color: var(--sol-texto); min-height: 44px; }
     .ver-tudo summary::-webkit-details-marker { display: none; }
@@ -217,8 +225,10 @@
     .plano.completo .preco { color: var(--sol-texto); }
     .preco-tipo { font-size: .9rem; font-weight: 700; margin-bottom: 16px; color: var(--texto-suave); }
     .plano.completo .preco-tipo { color: #E2D9FB; }
-    .tranquilo { list-style: none; display: flex; flex-wrap: wrap; justify-content: center; gap: 10px; margin-top: 22px; }
-    .tranquilo li { display: flex; align-items: center; gap: 6px; background: var(--papel); color: var(--roxo-escuro); font-size: .9rem; font-weight: 700; padding: 8px 14px; border-radius: 10px; box-shadow: 0 1px 2px rgba(37,29,69,.1); }
+    /* nota adesiva com as garantias, presa por ímã embaixo dos planos */
+    .tranquilo { position: relative; list-style: none; display: grid; gap: 8px; width: fit-content; max-width: 100%; margin: 34px auto 0; text-align: left; background: var(--sol-claro); color: #4a3700; padding: 22px 22px 18px; border-radius: 6px; rotate: -1.5deg; box-shadow: var(--sombra-papel); font-weight: 800; }
+    .tranquilo::before { content: ""; position: absolute; top: -10px; left: 50%; width: 26px; height: 22px; margin-left: -13px; border-radius: 6px; background: var(--ima-3); box-shadow: inset 0 -4px 0 rgba(0,0,0,.18), 0 3px 6px rgba(0,0,0,.28); }
+    .tranquilo li { display: flex; align-items: center; gap: 8px; }
     .tranquilo .ic { color: var(--roxo); }
     .seguranca { margin-top: 14px; font-size: .9rem; color: var(--texto-suave); }
 
@@ -270,6 +280,9 @@
        Sem JavaScript nada fica escondido. As folhas "grudam" na porta com um tranco de ímã. */
     .revelar { opacity: 0; transform: translateY(22px); transition: opacity .6s cubic-bezier(.2,.8,.2,1), transform .6s cubic-bezier(.2,.8,.2,1); transition-delay: var(--atraso-revelar, 0s); }
     .revelar.visivel { opacity: 1; transform: none; }
+    /* o que é preso por ímã não sobe: cai um pouco e "gruda" com um tranco curto (a assinatura da página) */
+    .ima-entra { opacity: 0; translate: 0 -16px; scale: 1.05; transition: opacity .3s ease-out, translate .6s cubic-bezier(.3,1.4,.5,1), scale .6s cubic-bezier(.3,1.4,.5,1); transition-delay: var(--atraso-revelar, 0s); }
+    .ima-entra.visivel { opacity: 1; translate: 0 0; scale: 1; }
     .folha, .nota-pontos { animation: grudar .7s cubic-bezier(.3,1.5,.5,1) both; animation-delay: var(--d, 0s); }
     .folha.f1 { --d: .05s; } .folha.f2 { --d: .2s; } .folha.f3 { --d: .35s; } .nota-pontos { --d: .5s; }
     @keyframes grudar { from { opacity: 0; transform: translateY(-18px) scale(1.06); } }
@@ -294,7 +307,7 @@
       .nivel { display: grid; grid-template-columns: 104px 1fr; column-gap: 14px; text-align: left; align-items: center; padding: 18px 14px; }
       .nivel .capa-nivel { grid-row: 1 / span 4; margin: 0; }
       .nivel .idade { justify-self: start; }
-      .grade-bonus { grid-template-columns: 1fr; }
+      .porta-bonus { grid-template-columns: repeat(2, 1fr); gap: 30px 14px; padding: 38px 14px 24px; }
     }
     @media (max-width: 720px) {
       section { padding: 50px 0; }
@@ -303,7 +316,6 @@
       .empurrao-combo { display: block; }
       .garantia-caixa { grid-template-columns: 1fr; text-align: center; justify-items: center; }
       .barra-compra { display: flex; }
-      .bonus { grid-template-columns: 76px 1fr; }
       .barra-oferta { font-size: .78rem; }
     }
     @media (prefers-reduced-motion: reduce) { * { animation: none !important; transition: none !important; } html { scroll-behavior: auto; } }
@@ -378,7 +390,7 @@
         <div class="folha f1"><span class="ima"></span><img src="assets/pagina-abraao.webp" alt="" width="700" height="991" fetchpriority="high"></div>
         <div class="folha f2"><span class="ima c3"></span><img src="assets/pagina-escolha-heroi.webp" alt="" width="700" height="991"></div>
         <div class="folha f3"><span class="ima c4"></span><img src="assets/pagina-colorir-davi.webp" alt="" width="700" height="991"></div>
-        <div class="nota-pontos"><span class="ima c2"></span>Pontos de Luz da semana<b>★★★★☆</b>Sábado: +30 min de jogo</div>
+        <div class="nota-pontos"><span class="ima c2"></span>Pontos de Luz da semana<span class="estrelas" role="img" aria-label="4 de 5 estrelas"><svg class="ic cheia"><use href="#i-estrela"/></svg><svg class="ic cheia"><use href="#i-estrela"/></svg><svg class="ic cheia"><use href="#i-estrela"/></svg><svg class="ic cheia"><use href="#i-estrela"/></svg><svg class="ic"><use href="#i-estrela"/></svg></span>Sábado: +30 min de jogo</div>
         <div class="etiqueta">
           <p class="preco-linha">3 cadernos por<b>R$ 19,90</b></p>
           <a href="#planos" class="botao">Quero imprimir hoje <svg class="ic" aria-hidden="true"><use href="#i-seta"/></svg></a>
@@ -476,18 +488,18 @@
   <!-- PROVA SOCIAL -->
   <section class="prova centro" id="depoimentos">
     <div class="container">
-      <h2>Famílias já estão usando a coleção para trazer a fé para a rotina</h2>
-      <p class="sub">Veja relatos enviados por quem recebeu o material e começou a aplicar com as crianças.</p>
+      <h2>Mensagens que recebemos</h2>
+      <p class="sub">Prints de conversas com clientes.</p>
     </div>
     <div class="varal">
-      <div class="trilho" id="trilhoDepoimentos" tabindex="0" aria-label="Depoimentos">
-        <!-- Coloque prints REAIS de depoimentos com estes nomes de arquivo -->
-        <div class="print"><img src="assets/depoimento1.webp" alt="Depoimento de cliente" loading="lazy" data-depoimento></div>
-        <div class="print"><img src="assets/depoimento2.webp" alt="Depoimento de cliente" loading="lazy" data-depoimento></div>
-        <div class="print"><img src="assets/depoimento3.webp" alt="Depoimento de cliente" loading="lazy" data-depoimento></div>
-        <div class="print"><img src="assets/depoimento4.webp" alt="Depoimento de cliente" loading="lazy" data-depoimento></div>
-        <div class="print"><img src="assets/depoimento5.webp" alt="Depoimento de cliente" loading="lazy" data-depoimento></div>
-        <div class="print"><img src="assets/depoimento6.webp" alt="Depoimento de cliente" loading="lazy" data-depoimento></div>
+      <div class="trilho" id="trilhoDepoimentos" tabindex="0" aria-label="Mensagens de clientes">
+        <!-- O depoimento2 é o que fala do Obby da Fé: fica em primeiro. Coloque prints REAIS com estes nomes de arquivo -->
+        <div class="print"><span class="ima c3"></span><img src="assets/depoimento2.webp" alt="Mensagem de uma mãe sobre o Obby da Fé" loading="lazy" data-depoimento></div>
+        <div class="print"><span class="ima"></span><img src="assets/depoimento1.webp" alt="Mensagem de cliente" loading="lazy" data-depoimento></div>
+        <div class="print"><span class="ima c4"></span><img src="assets/depoimento3.webp" alt="Mensagem de cliente" loading="lazy" data-depoimento></div>
+        <div class="print"><span class="ima c2"></span><img src="assets/depoimento4.webp" alt="Mensagem de cliente" loading="lazy" data-depoimento></div>
+        <div class="print"><span class="ima c3"></span><img src="assets/depoimento5.webp" alt="Mensagem de cliente" loading="lazy" data-depoimento></div>
+        <div class="print"><span class="ima"></span><img src="assets/depoimento6.webp" alt="Mensagem de cliente" loading="lazy" data-depoimento></div>
       </div>
       <div class="setas-varal">
         <button type="button" data-trilho="trilhoDepoimentos" data-dir="-1" aria-label="Depoimento anterior"><svg class="ic" aria-hidden="true"><use href="#i-seta-esq"/></svg></button>
@@ -501,13 +513,14 @@
     <div class="container">
       <h2>No Combo, 6 bônus que valem R$ 70,40 saem de graça</h2>
       <p class="sub">Para ampliar a prática e manter a criança animada até o fim da coleção.</p>
-      <div class="grade-bonus">
-        <div class="bonus"><img src="assets/bonus1.webp" alt="Capa do bônus Mapa de Progresso da Fé" loading="lazy" data-reservado="Capa bônus 1|assets/bonus1.webp"><div><h3>Mapa de Progresso da Fé</h3><p>Os 3 mundos e as 21 fases em um mapa para pendurar no quarto, com 21 distintivos para colorir.</p><span class="valor"><s>R$ 9,90</s>grátis no Combo</span></div></div>
-        <div class="bonus"><img src="assets/bonus2.webp" alt="Capa do bônus Cartões de Recompensa" loading="lazy" data-reservado="Capa bônus 2|assets/bonus2.webp"><div><h3>Cartões de Recompensa</h3><p>32 cartões de prêmio e conquista, do comum ao lendário, e um banco de pontos.</p><span class="valor"><s>R$ 9,90</s>grátis no Combo</span></div></div>
-        <div class="bonus"><img src="assets/bonus3.webp" alt="Capa do bônus Guia Rápido para os Pais" loading="lazy" data-reservado="Capa bônus 3|assets/bonus3.webp"><div><h3>Guia Rápido para os Pais</h3><p>Rotina de 15 minutos, frases prontas para birras de tela e segurança on-line.</p><span class="valor"><s>R$ 12,90</s>grátis no Combo</span></div></div>
-        <div class="bonus"><img src="assets/bonus4.webp" alt="Capa do bônus 100 Perguntas da Bíblia" loading="lazy" data-reservado="Capa bônus 4|assets/bonus4.webp"><div><h3>100 Perguntas da Bíblia</h3><p>O quiz da família em 3 níveis, com 4 modos de jogo e gabarito.</p><span class="valor"><s>R$ 14,90</s>grátis no Combo</span></div></div>
-        <div class="bonus"><img src="assets/bonus5.webp" alt="Capa do bônus Versículos Visuais" loading="lazy" data-reservado="Capa bônus 5|assets/bonus5.webp"><div><h3>Versículos Visuais</h3><p>24 cartões ilustrados para recortar e colecionar, cada um com uma missão.</p><span class="valor"><s>R$ 9,90</s>grátis no Combo</span></div></div>
-        <div class="bonus"><img src="assets/bonus6.webp" alt="Capa do bônus Desafio 30 Dias do Jogador da Fé" loading="lazy" data-reservado="Capa bônus 6|assets/bonus6.webp"><div><h3>Desafio 30 Dias do Jogador da Fé</h3><p>Uma leitura e uma missão por dia durante um mês.</p><span class="valor"><s>R$ 12,90</s>grátis no Combo</span></div></div>
+      <div class="porta-bonus">
+        <span class="puxador" aria-hidden="true"></span>
+        <div class="bonus"><span class="ima"></span><img src="assets/bonus1.webp" alt="Capa do bônus Mapa de Progresso da Fé" loading="lazy" data-reservado="Capa bônus 1|assets/bonus1.webp"><div class="rotulo"><h3>Mapa de Progresso da Fé</h3><p>Os 3 mundos e as 21 fases num mapa para o quarto, com 21 distintivos para colorir.</p><span class="valor"><s>R$ 9,90</s><span class="nw">grátis no Combo</span></span></div></div>
+        <div class="bonus"><span class="ima c2"></span><img src="assets/bonus2.webp" alt="Capa do bônus Cartões de Recompensa" loading="lazy" data-reservado="Capa bônus 2|assets/bonus2.webp"><div class="rotulo"><h3>Cartões de Recompensa</h3><p>32 cartões de prêmio e conquista, do comum ao lendário, e um banco de pontos.</p><span class="valor"><s>R$ 9,90</s><span class="nw">grátis no Combo</span></span></div></div>
+        <div class="bonus"><span class="ima c3"></span><img src="assets/bonus3.webp" alt="Capa do bônus Guia Rápido para os Pais" loading="lazy" data-reservado="Capa bônus 3|assets/bonus3.webp"><div class="rotulo"><h3>Guia Rápido para os Pais</h3><p>Rotina de 15 minutos, frases prontas para birras de tela e segurança on-line.</p><span class="valor"><s>R$ 12,90</s><span class="nw">grátis no Combo</span></span></div></div>
+        <div class="bonus"><span class="ima c4"></span><img src="assets/bonus4.webp" alt="Capa do bônus 100 Perguntas da Bíblia" loading="lazy" data-reservado="Capa bônus 4|assets/bonus4.webp"><div class="rotulo"><h3>100 Perguntas da Bíblia</h3><p>O quiz da família em 3 níveis, com 4 modos de jogo e gabarito.</p><span class="valor"><s>R$ 14,90</s><span class="nw">grátis no Combo</span></span></div></div>
+        <div class="bonus"><span class="ima"></span><img src="assets/bonus5.webp" alt="Capa do bônus Versículos Visuais" loading="lazy" data-reservado="Capa bônus 5|assets/bonus5.webp"><div class="rotulo"><h3>Versículos Visuais</h3><p>24 cartões ilustrados para recortar e colecionar, cada um com uma missão.</p><span class="valor"><s>R$ 9,90</s><span class="nw">grátis no Combo</span></span></div></div>
+        <div class="bonus"><span class="ima c2"></span><img src="assets/bonus6.webp" alt="Capa do bônus Desafio 30 Dias do Jogador da Fé" loading="lazy" data-reservado="Capa bônus 6|assets/bonus6.webp"><div class="rotulo"><h3>Desafio 30 Dias do Jogador da Fé</h3><p>Uma leitura e uma missão por dia durante um mês.</p><span class="valor"><s>R$ 12,90</s><span class="nw">grátis no Combo</span></span></div></div>
       </div>
     </div>
   </section>
@@ -544,7 +557,7 @@
         </div>
 
         <div class="plano completo">
-          <span class="faixa-topo">MAIS ESCOLHIDO</span>
+          <span class="faixa-topo">RECOMENDADO</span>
           <div class="img-plano"><img src="assets/colecao-3-niveis.webp" alt="Os 3 cadernos da coleção Obby da Fé" loading="lazy" data-reservado="Imagem do combo completo|assets/colecao-3-niveis.webp"></div>
           <h3>Combo Completo</h3>
           <p class="resumo">Os 3 cadernos + 6 bônus · acesso vitalício</p>
@@ -643,7 +656,7 @@
     // Números com data-contar sobem de 0 até o valor quando ficam visíveis.
     (function () {
       if (!("IntersectionObserver" in window) || window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
-      var alvos = "section h2, section .sub, .numero, .quadro, .fase-aberta, .varal, .nivel, .aviso-niveis, .bonus, .plano, .empurrao-combo, .tranquilo, .garantia-caixa, .perguntas details, .cta-final .botao, .cta-final .garantias";
+      var alvos = "section h2, section .sub, .numero, .quadro, .fase-aberta, .pagina, .print, .setas-varal, .nivel, .aviso-niveis, .bonus, .plano, .empurrao-combo, .tranquilo, .garantia-caixa, .perguntas details, .cta-final .botao, .cta-final .garantias";
       var obs = new IntersectionObserver(function (entradas) {
         entradas.forEach(function (e) {
           if (!e.isIntersecting) return;
@@ -658,7 +671,8 @@
         var irmaos = [].filter.call(el.parentElement.children, function (x) { return x.className === el.className; });
         var i = irmaos.indexOf(el);
         if (i > 0) el.style.setProperty("--atraso-revelar", Math.min(i, 5) * 0.1 + "s");
-        el.classList.add("revelar");
+        // o que tem um ímã próprio "gruda" (assinatura da página); o resto só aparece subindo
+        el.classList.add(el.querySelector(":scope > .ima") || el.matches(".tranquilo") ? "ima-entra" : "revelar");
         obs.observe(el);
       });
 
