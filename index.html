@@ -230,6 +230,13 @@
     .bonus .valor { font-size: .88rem; font-weight: 800; color: var(--roxo); }
     .bonus .valor .nw { white-space: nowrap; }
     .bonus .valor s { color: var(--texto-suave); font-weight: 700; margin-right: 6px; }
+    /* nota amarela no fim da porta: a soma dos bônus riscada e o "de graça" */
+    .soma-bonus { position: relative; grid-column: 1 / -1; justify-self: center; width: min(100%, 440px); margin-top: 4px; padding: 24px 20px 18px; background: var(--sol-claro); color: #4a3700; border-radius: 6px; rotate: -1deg; box-shadow: var(--sombra-papel); text-align: center; }
+    .soma-bonus > span, .soma-bonus > s, .soma-bonus > b { display: block; }
+    .soma-bonus .soma-rotulo { font-size: .8rem; font-weight: 900; letter-spacing: .1em; text-transform: uppercase; color: #6b5200; }
+    .soma-bonus s { font-family: "Fraunces", Georgia, serif; font-size: 1.6rem; font-weight: 700; color: #6b5200; text-decoration-thickness: 3px; }
+    .soma-bonus b { font-family: "Fraunces", Georgia, serif; font-size: 3rem; line-height: 1.05; color: var(--roxo); margin-top: 4px; }
+    .soma-bonus .soma-graca { font-weight: 900; font-size: 1rem; color: var(--roxo-escuro); text-wrap: balance; }
 
     /* ================= PLANOS ================= */
     .grade-planos { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; margin-top: 34px; align-items: start; }
@@ -601,18 +608,25 @@
   <section class="bonus-sec centro">
     <div class="container">
       <h2>E não para por aí: 9 bônus na Coleção Completa</h2>
-      <p class="sub">Juntos valem R$ 127,10. Na Coleção Completa, saem de graça.</p>
+      <p class="sub">Juntos valem R$ 460,10. Na Coleção Completa, saem de graça.</p>
       <div class="porta-bonus">
         <span class="puxador" aria-hidden="true"></span>
-        <div class="bonus"><span class="ima"></span><img src="assets/bonus1.webp" alt="Capa do bônus Mapa de Progresso da Fé" loading="lazy" data-reservado="Capa bônus 1|assets/bonus1.webp"><div class="rotulo"><h3>Mapa de Progresso da Fé</h3><p>Os 3 mundos e as 21 fases num mapa para o quarto. Ver o caminho faz ele querer a próxima fase.</p><span class="valor"><s>R$ 9,90</s><span class="nw">sai de graça</span></span></div></div>
-        <div class="bonus"><span class="ima c2"></span><img src="assets/bonus2.webp" alt="Capa do bônus Cartões de Recompensa" loading="lazy" data-reservado="Capa bônus 2|assets/bonus2.webp"><div class="rotulo"><h3>Loja de Recompensas: 32 cartões</h3><p>Do comum ao lendário: noite da pizza, cinema em casa, joga comigo. Ele junta pontos sem você mandar.</p><span class="valor"><s>R$ 9,90</s><span class="nw">sai de graça</span></span></div></div>
-        <div class="bonus"><span class="ima c3"></span><img src="assets/bonus3.webp" alt="Capa do bônus Guia Rápido para os Pais" loading="lazy" data-reservado="Capa bônus 3|assets/bonus3.webp"><div class="rotulo"><h3>Guia Rápido para os Pais</h3><p>Rotina pronta, Acordo de Tempo de Tela para assinar, frases para o "só mais 5 minutinhos" e alertas on-line.</p><span class="valor"><s>R$ 12,90</s><span class="nw">sai de graça</span></span></div></div>
-        <div class="bonus"><span class="ima c4"></span><img src="assets/bonus4.webp" alt="Capa do bônus 100 Perguntas da Bíblia" loading="lazy" data-reservado="Capa bônus 4|assets/bonus4.webp"><div class="rotulo"><h3>100 Perguntas da Bíblia</h3><p>Quiz em 3 níveis e 4 modos: Família, Solo, Speedrun e Torneio. Para o jantar, o carro e a igreja.</p><span class="valor"><s>R$ 14,90</s><span class="nw">sai de graça</span></span></div></div>
-        <div class="bonus"><span class="ima"></span><img src="assets/bonus5.webp" alt="Capa do bônus Versículos Visuais" loading="lazy" data-reservado="Capa bônus 5|assets/bonus5.webp"><div class="rotulo"><h3>Versículos Visuais: 24 cartões</h3><p>Cada cartão com uma missão. A regra mais simples da casa: falou o versículo, liberou o jogo.</p><span class="valor"><s>R$ 9,90</s><span class="nw">sai de graça</span></span></div></div>
-        <div class="bonus"><span class="ima c2"></span><img src="assets/bonus6.webp" alt="Capa do bônus Desafio 30 Dias do Jogador da Fé" loading="lazy" data-reservado="Capa bônus 6|assets/bonus6.webp"><div class="rotulo"><h3>Desafio 30 Dias do Jogador da Fé</h3><p>Uma leitura e uma missão por dia. Sem game over: perdeu um dia, continua de onde parou. Certificado no dia 30.</p><span class="valor"><s>R$ 12,90</s><span class="nw">sai de graça</span></span></div></div>
-        <div class="bonus"><span class="ima c3"></span><img src="assets/bonus7.webp" alt="Capa do bônus Livro de Colorir da Bíblia" loading="lazy" data-reservado="Capa bônus 7|assets/bonus7.webp"><div class="rotulo"><h3>Livro de Colorir da Bíblia</h3><p>104 desenhos de 30 heróis e histórias da Bíblia, com um versículo em cada página.</p><span class="valor"><s>R$ 19,90</s><span class="nw">sai de graça</span></span></div></div>
-        <div class="bonus"><span class="ima c4"></span><img src="assets/bonus8.webp" alt="Capa do bônus Passatempos Bíblicos" loading="lazy" data-reservado="Capa bônus 8|assets/bonus8.webp"><div class="rotulo"><h3>Passatempos Bíblicos</h3><p>100 desafios em 25 histórias: caça-palavras, código secreto, labirinto e quiz, com gabarito.</p><span class="valor"><s>R$ 14,90</s><span class="nw">sai de graça</span></span></div></div>
-        <div class="bonus"><span class="ima"></span><img src="assets/bonus9.webp" alt="Capa do bônus Devocional do Jogador" loading="lazy" data-reservado="Capa bônus 9|assets/bonus9.webp"><div class="rotulo"><h3>Devocional do Jogador</h3><p>100 dias com Deus em 10 mundos: versículo, oração e uma missão por dia.</p><span class="valor"><s>R$ 21,90</s><span class="nw">sai de graça</span></span></div></div>
+        <div class="bonus"><span class="ima"></span><img src="assets/bonus1.webp" alt="Capa do bônus Mapa de Progresso da Fé" loading="lazy" data-reservado="Capa bônus 1|assets/bonus1.webp"><div class="rotulo"><h3>Mapa de Progresso da Fé</h3><p>Os 3 mundos e as 21 fases num mapa para o quarto. Ver o caminho faz ele querer a próxima fase.</p><span class="valor"><s>R$ 39,90</s><span class="nw">sai de graça</span></span></div></div>
+        <div class="bonus"><span class="ima c2"></span><img src="assets/bonus2.webp" alt="Capa do bônus Cartões de Recompensa" loading="lazy" data-reservado="Capa bônus 2|assets/bonus2.webp"><div class="rotulo"><h3>Loja de Recompensas: 32 cartões</h3><p>Do comum ao lendário: noite da pizza, cinema em casa, joga comigo. Ele junta pontos sem você mandar.</p><span class="valor"><s>R$ 39,90</s><span class="nw">sai de graça</span></span></div></div>
+        <div class="bonus"><span class="ima c3"></span><img src="assets/bonus3.webp" alt="Capa do bônus Guia Rápido para os Pais" loading="lazy" data-reservado="Capa bônus 3|assets/bonus3.webp"><div class="rotulo"><h3>Guia Rápido para os Pais</h3><p>Rotina pronta, Acordo de Tempo de Tela para assinar, frases para o "só mais 5 minutinhos" e alertas on-line.</p><span class="valor"><s>R$ 47,90</s><span class="nw">sai de graça</span></span></div></div>
+        <div class="bonus"><span class="ima c4"></span><img src="assets/bonus4.webp" alt="Capa do bônus 100 Perguntas da Bíblia" loading="lazy" data-reservado="Capa bônus 4|assets/bonus4.webp"><div class="rotulo"><h3>100 Perguntas da Bíblia</h3><p>Quiz em 3 níveis e 4 modos: Família, Solo, Speedrun e Torneio. Para o jantar, o carro e a igreja.</p><span class="valor"><s>R$ 54,90</s><span class="nw">sai de graça</span></span></div></div>
+        <div class="bonus"><span class="ima"></span><img src="assets/bonus5.webp" alt="Capa do bônus Versículos Visuais" loading="lazy" data-reservado="Capa bônus 5|assets/bonus5.webp"><div class="rotulo"><h3>Versículos Visuais: 24 cartões</h3><p>Cada cartão com uma missão. A regra mais simples da casa: falou o versículo, liberou o jogo.</p><span class="valor"><s>R$ 39,90</s><span class="nw">sai de graça</span></span></div></div>
+        <div class="bonus"><span class="ima c2"></span><img src="assets/bonus6.webp" alt="Capa do bônus Desafio 30 Dias do Jogador da Fé" loading="lazy" data-reservado="Capa bônus 6|assets/bonus6.webp"><div class="rotulo"><h3>Desafio 30 Dias do Jogador da Fé</h3><p>Uma leitura e uma missão por dia. Sem game over: perdeu um dia, continua de onde parou. Certificado no dia 30.</p><span class="valor"><s>R$ 47,90</s><span class="nw">sai de graça</span></span></div></div>
+        <div class="bonus"><span class="ima c3"></span><img src="assets/bonus7.webp" alt="Capa do bônus Livro de Colorir da Bíblia" loading="lazy" data-reservado="Capa bônus 7|assets/bonus7.webp"><div class="rotulo"><h3>Livro de Colorir da Bíblia</h3><p>104 desenhos de 30 heróis e histórias da Bíblia, com um versículo em cada página.</p><span class="valor"><s>R$ 64,90</s><span class="nw">sai de graça</span></span></div></div>
+        <div class="bonus"><span class="ima c4"></span><img src="assets/bonus8.webp" alt="Capa do bônus Passatempos Bíblicos" loading="lazy" data-reservado="Capa bônus 8|assets/bonus8.webp"><div class="rotulo"><h3>Passatempos Bíblicos</h3><p>100 desafios em 25 histórias: caça-palavras, código secreto, labirinto e quiz, com gabarito.</p><span class="valor"><s>R$ 54,90</s><span class="nw">sai de graça</span></span></div></div>
+        <div class="bonus"><span class="ima"></span><img src="assets/bonus9.webp" alt="Capa do bônus Devocional do Jogador" loading="lazy" data-reservado="Capa bônus 9|assets/bonus9.webp"><div class="rotulo"><h3>Devocional do Jogador</h3><p>100 dias com Deus em 10 mundos: versículo, oração e uma missão por dia.</p><span class="valor"><s>R$ 69,90</s><span class="nw">sai de graça</span></span></div></div>
+        <!-- Soma dos 9 valores acima: se mudar algum, refaça a conta aqui, no subtítulo e nos planos -->
+        <div class="soma-bonus"><span class="ima c2"></span>
+          <span class="soma-rotulo">Somando os 9 bônus</span>
+          <s>R$ 460,10</s>
+          <b>R$ 0,00</b>
+          <span class="soma-graca">na Coleção Completa: sai tudo de graça</span>
+        </div>
       </div>
     </div>
   </section>
@@ -657,7 +671,7 @@
           <ul class="itens">
             <li><b>+500 páginas para imprimir</b></li>
             <li>Tudo do Plano Básico</li>
-            <li>9 bônus que valem R$ 127,10</li>
+            <li>9 bônus que valem R$ 460,10</li>
             <li>Acesso vitalício</li>
           </ul>
           <details class="ver-tudo">
@@ -677,7 +691,7 @@
               <li>Devocional do Jogador</li>
             </ul>
           </details>
-          <div class="preco-de">valor total R$ 155,00<br>de R$ 37,90 por</div>
+          <div class="preco-de">valor total R$ 488,00<br>de R$ 37,90 por</div>
           <div class="preco">R$ 27,90</div>
           <div class="preco-tipo">pagamento único</div>
           <!-- Checkout Wiapy do Combo Completo (R$ 27,90) -->
@@ -761,7 +775,7 @@
     // Números com data-contar sobem de 0 até o valor quando ficam visíveis.
     (function () {
       if (!("IntersectionObserver" in window) || window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
-      var alvos = "section h2, section .sub, .numero, .quadro, .fase-aberta, .pagina, .print, .setas-varal, .nivel, .polaroid, .bilhete, .aviso-niveis, .bonus, .plano, .empurrao-combo, .tranquilo, .garantia-caixa, .perguntas details, .cta-final .botao, .cta-final .garantias";
+      var alvos = "section h2, section .sub, .numero, .quadro, .fase-aberta, .pagina, .print, .setas-varal, .nivel, .polaroid, .bilhete, .aviso-niveis, .bonus, .soma-bonus, .plano, .empurrao-combo, .tranquilo, .garantia-caixa, .perguntas details, .cta-final .botao, .cta-final .garantias";
       var obs = new IntersectionObserver(function (entradas) {
         entradas.forEach(function (e) {
           if (!e.isIntersecting) return;
